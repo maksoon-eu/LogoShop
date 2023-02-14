@@ -1,0 +1,106 @@
+@import './variables';
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,
+li,
+dl {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    &:hover {
+        text-decoration: none;
+        transition: .1s linear;
+    }
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input {
+    outline: none;
+}
+
+.app {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px 15px 0 15px;
+    position: relative;
+}
+  
+.slick-next {
+    &:before {
+        transition: .1s linear;
+        content: url(../resources/img/right-arrow.svg) !important;
+    }
+}
+
+.slick-prev {
+    &:before {
+        transition: .1s linear;
+        content: url(../resources/img/left-arrow.svg) !important;
+    }
+}
+
+.slick-dots {
+    li {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin: 0 12.5px;
+
+        button {
+            width: 10px;
+            height: 10px;
+            background: #FFFFFF;
+            border: 1px solid #9CA3AF;
+            border-radius: 50%;
+            transition: .1s linear;
+
+            &:hover, &:focus {
+                background: $blue-color;
+            }
+
+            &:before {
+                border-radius: 50%;
+                content: '';
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        &.slick-active button {
+            background: $blue-color;
+        }
+    }
+}

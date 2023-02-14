@@ -1,0 +1,36 @@
+@import '../../style/variables.scss';
+
+.ride-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1180px;
+    width: 100%;
+    min-height: 140px;
+    background: #FEF3C7;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 17px 28px;
+
+    &__text {
+        max-width: 315px;
+        width: 100%;
+
+        &-title {
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 25px;
+            color: #000000;
+        }
+
+        &-subtitle {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 20px;
+            letter-spacing: 0.8px;
+            color: #000000;
+        }
+    }
+}

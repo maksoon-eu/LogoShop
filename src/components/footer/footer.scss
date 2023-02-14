@@ -1,0 +1,157 @@
+@import '../../style/variables.scss';
+
+footer {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-top: 55px;
+    background: #1F2937;
+    padding: 60px 50px 30px;
+}
+
+.footer__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-item:not(:last-of-type) {
+        margin-right: 10px;
+    }
+}
+
+.footer__pay {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+
+    &--text {
+        max-width: 550px;
+        width: 100%;
+    }
+
+    .pay__title {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 25px;
+        color: #FFFFFF;
+        margin-bottom: 25px;
+    }
+
+    .pay__subtitle {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 15px;
+        color: #FFFFFF;
+        margin-bottom: 12px;
+    }
+
+    .pay__text {
+        margin-bottom: 10px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 15px;
+        color: #FFFFFF;
+    }
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    &__text {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 15px;
+        color: $gray-color;
+        margin-bottom: 4px;
+    }
+
+    &__info--footer {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 15px;
+        color: #fff;
+
+        a {
+            transition: .2s linear;
+
+            &:hover {
+                color: $focus-color;
+            }
+        }
+    }
+
+    img {
+        margin-right: 7px;
+        position: relative;
+        top: 3px;
+    }
+}
+
+svg {
+    path {
+        transition: .1s linear;
+    }
+    &:hover path {
+        fill: $focus-color;
+    }
+}
+
+.search {
+    max-width: 356px;
+    width: 100%;
+    position: relative;
+
+    &:before {
+        content: url(../../resources/img/search.svg);
+
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: 20px;
+        top: 10px;
+    }
+}
+
+.account {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+        display: block;
+        width: 20px;
+        height: 20px;
+
+        &:not(:last-of-type) {
+            margin-right: 10px;
+            margin-top: 2px;
+        }
+    }
+}
+
+.bag {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        margin-left: 11px;
+    }
+
+    &:hover {
+        path {
+            fill: $focus-color;
+        }
+    }
+}

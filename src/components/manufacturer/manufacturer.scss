@@ -1,0 +1,11 @@
+.manu {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &__item {
+        margin-bottom: 15px;
+    }
+}

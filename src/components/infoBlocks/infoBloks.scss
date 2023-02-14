@@ -1,0 +1,125 @@
+@import '../../style/variables.scss';
+
+.blocks {
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.blocks__item {
+    margin: 0 5px;
+    max-width: 255px;
+    width: 100%;
+    min-height: 123px;
+    background: #F3F4F6;
+    border-radius: 10px;
+    position: relative;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    img {
+        position: absolute;
+        right: 20px;
+        top: 12px;
+    }
+
+    &-name {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 15px;
+        color: #000000;
+        margin-bottom: 10px;
+    }
+
+    &-link {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 13px;
+        display: block;
+        white-space: pre;
+
+        &:hover {
+            text-decoration-line: underline;
+            color: $focus-color; 
+        }
+    }
+}
+
+.blocks__link {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+
+.info__item {
+    padding: 0 5px;
+    max-width: 181px;
+    width: 100%;
+    margin-bottom: 20px;
+
+    &-img {
+        margin-bottom: 16px;
+    }
+
+    &-title {
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 15px;
+
+        color: #000000;
+    }
+
+    &-text {
+        margin-bottom: 10px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 13px;
+        min-height: 52px;
+        
+        color: #000000;
+    }
+
+    &-link {
+        display: inline-block;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 15px;
+        transition: .1s linear;
+        color: $gray-color;
+
+        &:hover {
+            color: $blue-color;
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 2px;
+            margin-top: 5px;
+            background-color: $gray-color;
+        
+            transition: width .1s linear;
+        }
+
+        &:hover:after {
+            width: 100%;
+            background-color: $blue-color;
+        }
+    }
+}

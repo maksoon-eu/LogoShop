@@ -1,0 +1,41 @@
+@import '../../style/variables.scss';
+
+.nav__block {
+    margin-top: 33px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+
+    &-item {
+        min-width: 87px;
+        height: 31px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 15px;
+        color: #000;
+        background: transparent;
+        transition: .2s linear;
+        margin: 0 5px;
+        padding: 0 5px;
+        border-radius: 7px;
+
+        &--main {
+            background: #FEF2F2;
+            color: #EF4444;
+
+            img {
+                margin-right: 7px;
+            }
+        }
+
+        &:hover:not(:first-of-type) {
+            background: #EFF6FF;
+            color: $blue-color;
+        }
+    }
+}
