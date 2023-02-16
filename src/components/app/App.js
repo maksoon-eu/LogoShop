@@ -7,17 +7,24 @@ import ItemsPage from '../pages/ItemsPage';
 import '../../style/style.scss'
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useState } from 'react';
 
 
 const App = () => {
+
+    const [header, setHeader] = useState(localStorage.getItem('activeTab'))
+    const headerForList = (name) => {
+        setHeader(name)
+    }
+
     return (
         <Router>
             <div className="app">
                 <Header/>
-                <Nav/>
+                <Nav headerForList={headerForList}/>
                 <Routes>
                     <Route path="/" element={<MainPage/>}/>
-                    <Route path="/:comicId" element={<ItemsPage/>}/>
+                    <Route path="/:comicId" element={<ItemsPage name={header}/>}/>
                 </Routes>
                 <Footer/>
             </div>

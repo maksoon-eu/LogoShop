@@ -10,12 +10,12 @@ const MainPage = () => {
         <>
             <Slider/>
             <InfoBlocks/>
-            <ProductList title={'Арматура'} />
+            <ProductList title={'Арматура'} comicId={'fittings'}/>
             <EmailBanner/>
-            <ProductList title={'Вентиляция и кондиционирование'} />
-            <ProductList title={'Изоляционные материалы'} />
+            <ProductList title={'Вентиляция и кондиционирование'} comicId={'ventilation'}/>
+            <ProductList title={'Изоляционные материалы'} comicId={'isolation'}/>
             <Manufacturer/>
-            <ProductList title={'Вам может понадобиться'} />
+            <ProductList title={'Вам может понадобиться'} comicId={'fittings'}/>
             <RideBanner/>
         </>
     );

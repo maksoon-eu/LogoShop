@@ -8,9 +8,9 @@ import plus from '../../resources/img/plus.svg';
 import './productListItem.scss'
 
 
-const ProductListItem = (props) => {
+const ProductListItem = ({catalog}) => {
 
-    const {photo, name, price, raiting, available, sale, saleCount, newItem} = props.item
+    const {photo, name, price, raiting, available, sale, saleCount, newItem} = catalog
 
     const [count, setCount] = useState(1)
     const [toBag, setToBag] = useState(false)

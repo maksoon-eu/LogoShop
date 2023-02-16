@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 import logo from '../../resources/img/logo-header.svg'
 import time from '../../resources/img/time.svg'
 import phone from '../../resources/img/phone.svg'
@@ -8,9 +10,9 @@ const Header = () => {
     return (
         <header className="header">
             <div className="header__block">
-                <div className="header__block-item">
+                <NavLink to={'/'} className="header__block-item">
                     <img src={logo} alt="logo" />
-                </div>
+                </NavLink>
                 <div className="header__block-item search">
                     <input type="text" className="search__input" placeholder="Введите запрос..."/>
                 </div>

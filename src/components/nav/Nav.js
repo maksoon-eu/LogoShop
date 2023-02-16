@@ -5,7 +5,7 @@ import useShopService from "../../services/ShopService";
 import catalog1 from '../../resources/img/catalog.svg'
 import './nav.scss'
 
-const Nav = () => {
+const Nav = ({headerForList}) => {
 
     const [catalog, setCatalog] = useState([])
 
@@ -33,11 +33,12 @@ const Nav = () => {
     const navList = catalog.map(({name, id}, i) => {
         return (
             <NavLink
-            to={`/${id}`}
-            key={i} 
-            end
-            style={({isActive}) => isActive ? activeStyle : nonActiveStyle}
-            className="nav__block-item">{name}</NavLink>
+                to={`/${id}`}
+                key={i}
+                onClick={() => headerForList(name)}
+                end
+                style={({isActive}) => isActive ? activeStyle : nonActiveStyle}
+                className="nav__block-item">{name}</NavLink>
         )
     })
 

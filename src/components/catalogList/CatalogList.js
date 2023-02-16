@@ -4,25 +4,23 @@ import useShopService from "../../services/ShopService";
 
 import Spinner from "../spiner/Spiner";
 import ErrorMessage from "../errorMessage/ErorrMessage";
-import ProductListItem from '../productListItem/ProductListItem';
+import ProductListItem from "../productListItem/ProductListItem";
 
-import './productList.scss'
-import catalogImg from '../../resources/img/catalog.svg'
-
-
-const ProductList = ({title, comicId}) => {
-
+const CatalogList = () => {
     const [catalog, setCatalog] = useState([])
+    const [activeName, setActiveName] = useState([])
+    const {comicId} = useParams()
 
-    const {getCatalogItemsCount, error, loading} = useShopService();
+    const {getCatalogItems, error, loading} = useShopService();
 
     useEffect(() => {
-        getCatalogItemsCount(comicId)
+        getCatalogItems(comicId)
             .then(onCatalogLoaded)
-    }, [])
+    }, [comicId])
     
     const onCatalogLoaded = (catalog) => {
-        setCatalog(catalog)
+        setCatalog(catalog.itemList)
+        setActiveName(catalog.activeTab)
     }
 
     const catalogList = catalog.map((item, i) => {
@@ -31,26 +29,26 @@ const ProductList = ({title, comicId}) => {
         )
     })
 
+    const catalogTitle = activeName.map(({activeTab}, i) => {
+        return (
+            <h1 key={i}>{activeTab}</h1>
+        )
+    })
+
     const errorMessage = error ? <ErrorMessage/> : null
     const spinner = loading ? <Spinner/> : null
     const content =  !(loading || error) ? catalogList : null
 
     return (
-        <>
-            <div className="list__header">
-                <h2 className="list__title">{title}</h2>
-                <a href="#" className="nav__block-item nav__block-item--main">
-                    <img src={catalogImg} alt="catalog" />
-                    Все товары
-                </a>
-            </div>
-            <div className='list'>
+        <div>
+            {catalogTitle}
+            <div>
                 {errorMessage}
                 {spinner}
                 {content}
             </div>
-        </>
-    );
+        </div>
+    )
 };
 
-export default ProductList;
+export default CatalogList;

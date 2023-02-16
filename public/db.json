@@ -1,47 +1,281 @@
 {
     "catalog": [
         {
-            "name": "Арматура", "id": "fittings"
+            "name": "Арматура", 
+            "id": "fittings", 
+            "photo": "images/info1.svg",
+            "subdirectory": [
+                {"PPR": "#1", "запорная арматура": "#2", "трубопроводная арматура": "#3"}
+            ]
         },
         {
-            "name": "Вентиляция", "id": "ventilation"
+            "name": "Вентиляция", "id": "ventilation", "photo": "images/info2.svg",
+            "subdirectory": [
+                {"PPR": "#4", "запорная арматура": "#5", "трубопроводная арматура": "#6"}
+            ]
         },
         {
-            "name": "Изоляция"
+            "name": "Изоляция", "id": "isolation", "photo": "images/info3.svg",
+            "subdirectory": [
+                {"PPR": "#", "запорная арматура": "#", "трубопроводная арматура": "#"}
+            ]
         },
         {
-            "name": "Инструмент"
+            "name": "Инструменты", "id": "tools", "photo": "images/info4.svg",
+            "subdirectory": [
+                {"PPR": "#", "запорная арматура": "#", "трубопроводная арматура": "#"}
+            ]
         },
         {
-            "name": "Монтаж"
+            "name": "Монтаж", "id": "mounting", "photo": "images/info5.svg",
+            "subdirectory": [
+                {"PPR": "#", "запорная арматура": "#", "трубопроводная арматура": "#"}
+            ]
         },
         {
-            "name": "Огнезащита"
+            "name": "Огнезащита", "id": "fireProtection", "photo": "images/info6.svg",
+            "subdirectory": [
+                {"PPR": "#", "запорная арматура": "#", "трубопроводная арматура": "#"}
+            ]
         },
         {
-            "name": "Технические газы и жидкости"
+            "name": "Трубы и фиттинг", "id": "pipesAndFittings", "photo": "images/info7.svg",
+            "subdirectory": [
+                {"PPR": "#", "запорная арматура": "#", "трубопроводная арматура": "#"}
+            ]
         },
         {
-            "name": "Трубы и фиттинг"
-        },
-        {
-            "name": "Холодоснабжение"
-        },
-        {
-            "name": "Электрика"
+            "name": "Электрика", "id": "electrics", "photo": "images/info8.svg",
+            "subdirectory": [
+                {"PPR": "#", "запорная арматура": "#", "трубопроводная арматура": "#"}
+            ]
         }
     ],
     "catalogItems": [
         {
             "id": "fittings", 
+            "activeTab": [{"activeName": "Арматура"}],
             "itemList": [
-                {"text": "Арматура111"}
+                {"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"},
+                {"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"},{"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"},
+                {"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"},{"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"},
+                {"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"}
             ]
         },
         {
             "id": "ventilation", 
+            "activeTab": [{"activeName": "Вентиляция"}],
             "itemList": [
-                {"text": "ventilation222"}
+                {"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"},
+                {"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"}
+            ]
+        },
+        {
+            "id": "isolation", 
+            "activeTab": [{"activeName": "Изоляция"}],
+            "itemList": [
+                {"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"},
+                {"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"}
+            ]
+        },
+        {
+            "id": "tools", 
+            "activeTab": [{"activeName": "Инструменты"}],
+            "itemList": [
+                {"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"},
+                {"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"}
+            ]
+        },
+        {
+            "id": "mounting", 
+            "activeTab": [{"activeName": "Монтаж"}],
+            "itemList": [
+                {"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"},
+                {"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"}
+            ]
+        },
+        {
+            "id": "fireProtection", 
+            "activeTab": [{"activeName": "Огнезащита"}],
+            "itemList": [
+                {"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"},
+                {"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"}
+            ]
+        },
+        {
+            "id": "pipesAndFittings", 
+            "activeTab": [{"activeName": "Трубы и фиттинги"}],
+            "itemList": [
+                {"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"},
+                {"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"}
+            ]
+        },
+        {
+            "id": "electrics", 
+            "activeTab": [{"activeName": "Электрика"}],
+            "itemList": [
+                {"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"},
+                {"photo": "/images/photo.svg",
+                "name": "PRO AQUA PP-R Компенсатор Белый 20",
+                "raiting": 3, 
+                "price": 1934.15, 
+                "available": true, 
+                "sale": true, 
+                "saleCount": 10, 
+                "newItem": false, 
+                "id": "a1"}
             ]
         }
     ]
