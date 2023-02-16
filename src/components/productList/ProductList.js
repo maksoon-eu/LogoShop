@@ -14,15 +14,15 @@ const ProductList = ({title, comicId}) => {
 
     const [catalog, setCatalog] = useState([])
 
-    const {getCatalogItemsCount, error, loading} = useShopService();
+    const {getCatalogItems, error, loading} = useShopService();
 
     useEffect(() => {
-        getCatalogItemsCount(comicId)
+        getCatalogItems(comicId, 4)
             .then(onCatalogLoaded)
     }, [])
     
     const onCatalogLoaded = (catalog) => {
-        setCatalog(catalog)
+        setCatalog(catalog.itemList)
     }
 
     const catalogList = catalog.map((item, i) => {

@@ -9,19 +9,14 @@ const useShopService = () => {
         return res.catalog.map(_transformCatalog)
     }
 
-    const getCatalogItemsCount = async (id, count = 4) => {
+    const getCatalogItems = async (id, count) => {
         const res = await request('http://localhost:3000/db.json');
-        let listArr = res.catalogItems.find(item => item.id === id)
-        
-        return listArr.itemList.slice(0, count).map(_transformCatalogItems)
-    }
-
-    const getCatalogItems = async (id) => {
-        const res = await request('http://localhost:3000/db.json');
-
-        let listArr = res.catalogItems.find(item => item.id === id)
+        const listArr = res.catalogItems.find(item => item.id === id)
+        if (count === undefined) {
+            count = listArr.itemList.lenght
+        }
         return {
-            itemList: listArr.itemList.map(_transformCatalogItems),
+            itemList: listArr.itemList.slice(0, count).map(_transformCatalogItems),
             activeTab: listArr.activeTab.map(_transformCatalogName)
         }
     }
@@ -55,7 +50,7 @@ const useShopService = () => {
         }
     }
 
-    return {getCatalog, getCatalogItems, getCatalogItemsCount, loading, error}
+    return {getCatalog, getCatalogItems, loading, error}
 }
 
 export default useShopService;
