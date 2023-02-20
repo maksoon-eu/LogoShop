@@ -4,17 +4,22 @@ const useShopService = () => {
 
     const {loading, request, error} = useHttp()
 
-    const getCatalog = async () => {
+    const getCatalog = async (id) => {
         const res = await request('http://localhost:3000/db.json');
-        return res.catalog.map(_transformCatalog)
+
+        if (id === undefined) {
+            return res.catalog.map(_transformCatalog)
+        } else {
+            const listArr = res.catalog.find(item => item.id === id)
+            return listArr.subdirectory.map(_transformCatalogFilter)
+        }
     }
 
     const getCatalogItems = async (id, count) => {
         const res = await request('http://localhost:3000/db.json');
         const listArr = res.catalogItems.find(item => item.id === id)
-        if (count === undefined) {
-            count = listArr.itemList.lenght
-        }
+        count = count === undefined ? listArr.itemList.lenght : count
+        
         return {
             itemList: listArr.itemList.slice(0, count).map(_transformCatalogItems),
             activeTab: listArr.activeTab.map(_transformCatalogName)
@@ -47,6 +52,12 @@ const useShopService = () => {
             id: item.id,
             photo: item.photo,
             subdirectory: item.subdirectory[0]
+        }
+    }
+
+    const _transformCatalogFilter = (item) => {
+        return {
+            subdirectory: item
         }
     }
 

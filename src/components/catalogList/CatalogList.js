@@ -5,10 +5,14 @@ import useShopService from "../../services/ShopService";
 import Spinner from "../spiner/Spiner";
 import ErrorMessage from "../errorMessage/ErorrMessage";
 import ProductListItem from "../productListItem/ProductListItem";
+import CatalogFilter from '../catalogFilter/CatalogFilter';
+
+import './catalogList.scss'
 
 const CatalogList = () => {
     const [catalog, setCatalog] = useState([])
     const [activeName, setActiveName] = useState([])
+    const [filters, setFilters] = useState([])
     const {comicId} = useParams()
 
     const {getCatalogItems, error, loading} = useShopService();
@@ -16,11 +20,27 @@ const CatalogList = () => {
     useEffect(() => {
         getCatalogItems(comicId)
             .then(onCatalogLoaded)
+
+        setFilters([])
     }, [comicId])
     
     const onCatalogLoaded = (catalog) => {
         setCatalog(catalog.itemList)
         setActiveName(catalog.activeTab)
+    }
+
+    const filteredList = (newFilter) => {
+        if (filters.length === 0) {
+            setFilters(filters.concat(newFilter))
+        }
+
+        if (!filters.some(item => item === newFilter)) {
+            setFilters(filters.concat(newFilter))
+        } else {
+            setFilters(filters.filter(el => {
+                return el !== newFilter
+            }))
+        }
     }
 
     const catalogList = catalog.map((item, i) => {
@@ -42,7 +62,8 @@ const CatalogList = () => {
     return (
         <div>
             {catalogTitle}
-            <div>
+            <CatalogFilter filteredList={filteredList} comicId={comicId}/>
+            <div className="catalog__block">
                 {errorMessage}
                 {spinner}
                 {content}

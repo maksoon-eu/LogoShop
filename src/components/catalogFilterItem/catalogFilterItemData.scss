@@ -1,0 +1,33 @@
+@import '../../style/variables.scss';
+
+.filter__list {
+    &-chek {
+        position: relative;
+        padding-left: 30px;
+        text-transform: capitalize;
+        cursor: pointer;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 3px;
+            width: 16px;
+            height: 16px;
+            background-color: #F3F4F6;
+            border: 1px solid $gray-color;
+            transition: .1s linear;
+            border-radius: 3px;
+        }
+    }
+
+    &-chek--active {
+        &:before {
+            width: 14px;
+            height: 14px;
+            background: #DBEAFE;
+            border: 2px solid #3B82F6;
+            border-radius: 3px;
+        }
+    }
+}

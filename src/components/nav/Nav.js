@@ -20,11 +20,6 @@ const Nav = ({headerForList}) => {
         setCatalog(catalog)
     }
 
-    const nonActiveStyle = {
-        color: '#000',
-        background: '#fff'
-    }
-
     const activeStyle = {
         background: '#EFF6FF',
         color: '#3B82F6'
@@ -36,19 +31,20 @@ const Nav = ({headerForList}) => {
                 to={`/${id}`}
                 key={i}
                 onClick={() => headerForList(name)}
+                className="nav__block-item"
                 end
-                style={({isActive}) => isActive ? activeStyle : nonActiveStyle}
-                className="nav__block-item">{name}</NavLink>
+                style={({isActive}) => isActive ? activeStyle : undefined}
+                >{name}</NavLink>
         )
     })
 
     return (
         <nav>
             <div className="nav__block">
-                <a href="#" className="nav__block-item nav__block-item--main">
+                <NavLink to={'/'} className="nav__block-item nav__block-item--main">
                     <img src={catalog1} alt="catalog" />
                     Каталог
-                </a>
+                </NavLink>
                 {navList}
             </div>
         </nav>

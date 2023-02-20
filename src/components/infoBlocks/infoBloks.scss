@@ -34,6 +34,11 @@
         line-height: 15px;
         color: #000000;
         margin-bottom: 10px;
+        transition: .2s linear;
+
+        &:hover {
+            color: $focus-color;
+        }
     }
 
     &-link {
