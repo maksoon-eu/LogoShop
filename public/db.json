@@ -5,50 +5,71 @@
             "id": "fittings", 
             "photo": "images/info1.svg",
             "subdirectory": [
-                {"PPR": "#1", "запорная арматура": "#2", "трубопроводная арматура": "#3"}
+                {"filterName": "PPR", "filterNameProgram": "prp"},
+                {"filterName": "запорная арматура", "filterNameProgram": "shutOffPipe"},
+                {"filterName": "трубопроводная арматура", "filterNameProgram": "pipeFittings"}
             ]
         },
         {
             "name": "Вентиляция", "id": "ventilation", "photo": "images/info2.svg",
             "subdirectory": [
-                {"Гибкие воздуховоды": "#4", "дренаж": "#5", "зимние комплекты": "#6", "сплит системы": "#7"}
+                {"filterName": "Гибкие воздуховоды", "filterNameProgram": "prp1"},
+                {"filterName": "дренаж", "filterNameProgram": "shutOffPipe"},
+                {"filterName": "зимние комплекты", "filterNameProgram": "pipeFittings"},
+                {"filterName": "сплит системы", "filterNameProgram": "pipeFittings"}
             ]
         },
         {
             "name": "Изоляция", "id": "isolation", "photo": "images/info3.svg",
             "subdirectory": [
-                {"Защитные системы": "#", "звукоизоляция": "#", "термочехлы": "#", "техническа теплоизоляция": "#"}
+                {"filterName": "Защитные системы", "filterNameProgram": "prp"},
+                {"filterName": "звукоизоляция", "filterNameProgram": "shutOffPipe"},
+                {"filterName": "термочехлы", "filterNameProgram": "pipeFittings"},
+                {"filterName": "техническа теплоизоляция", "filterNameProgram": "pipeFittings"}
             ]
         },
         {
             "name": "Инструменты", "id": "tools", "photo": "images/info4.svg",
             "subdirectory": [
-                {"Аксессуары": "#", "горелки": "#", "отрезной инструмент": "#",
-            "расходные материалы": "#"}
+                {"filterName": "Аксессуары", "filterNameProgram": "prp"},
+                {"filterName": "горелки", "filterNameProgram": "shutOffPipe"},
+                {"filterName": "отрезной инструмент", "filterNameProgram": "pipeFittings"},
+                {"filterName": "расходные материалы", "filterNameProgram": "pipeFittings"}
             ]
         },
         {
             "name": "Монтаж", "id": "mounting", "photo": "images/info5.svg",
             "subdirectory": [
-                {"Ленты": "#", "определение проточек": "#", "пены клеи и герметики": "#", "припои МАРР Газ": "#"}
+                {"filterName": "Ленты", "filterNameProgram": "prp"},
+                {"filterName": "определение проточек", "filterNameProgram": "shutOffPipe"},
+                {"filterName": "пены клеи и герметики", "filterNameProgram": "pipeFittings"},
+                {"filterName": "припои МАРР Газ", "filterNameProgram": "pipeFittings"}
             ]
         },
         {
             "name": "Огнезащита", "id": "fireProtection", "photo": "images/info6.svg",
             "subdirectory": [
-                {"Огнезащита воздуховодов": "#", "огнезащитные покрытия": "#", "противопожарные муфты": "#"}
+                {"filterName": "Огнезащита воздуховодов", "filterNameProgram": "prp"},
+                {"filterName": "огнезащитные покрытия", "filterNameProgram": "shutOffPipe"},
+                {"filterName": "противопожарные муфты", "filterNameProgram": "pipeFittings"}
             ]
         },
         {
             "name": "Трубы и фиттинг", "id": "pipesAndFittings", "photo": "images/info7.svg",
             "subdirectory": [
-                {"Медь": "#", "нержавейка": "#", "ПВХ": "#", "полиэтелен": "#", "Сталь": "#"}
+                {"filterName": "Медь", "filterNameProgram": "prp"},
+                {"filterName": "нержавейка", "filterNameProgram": "shutOffPipe"},
+                {"filterName": "ПВХ", "filterNameProgram": "pipeFittings"},
+                {"filterName": "полиэтелен", "filterNameProgram": "pipeFittings"},
+                {"filterName": "сталь", "filterNameProgram": "pipeFittings"}
             ]
         },
         {
             "name": "Электрика", "id": "electrics", "photo": "images/info8.svg",
             "subdirectory": [
-                {"Гофра": "#", "кабельная продукция": "#", "системы прокладки кабеля": "#"}
+                {"filterName": "Гофра", "filterNameProgram": "prp"},
+                {"filterName": "кабельная продукция", "filterNameProgram": "shutOffPipe"},
+                {"filterName": "системы прокладки кабеля", "filterNameProgram": "pipeFittings"}
             ]
         }
     ],
@@ -64,24 +85,28 @@
                 "available": true, 
                 "sale": true, 
                 "saleCount": 10, 
-                "newItem": false, 
+                "newItem": true, 
+                "category": ["sale", "available", "newItem", "prp"], 
                 "id": "a1"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
                 "raiting": 5, 
                 "price": 1134.15, 
-                "available": true, 
-                "sale": true, 
+                "available": false, 
+                "sale": false, 
                 "saleCount": 20, 
                 "newItem": false, 
-                "id": "a1"},{"photo": "/images/photo.svg",
+                "category": ["prp"], 
+                "id": "a1"},
+                {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
                 "raiting": 0, 
                 "price": 2004.15, 
                 "available": true, 
                 "sale": false, 
                 "saleCount": 10, 
-                "newItem": true, 
+                "newItem": true,
+                "category": ["newItem", "available"], 
                 "id": "a1"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
@@ -91,7 +116,9 @@
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
-                "id": "a1"},{"photo": "/images/photo.svg",
+                "category": ["sale", "available"], 
+                "id": "a1"},
+                {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
                 "raiting": 3, 
                 "price": 1934.15, 
@@ -99,6 +126,7 @@
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
+                "category": [""], 
                 "id": "a1"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
@@ -108,6 +136,7 @@
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
+                "category": ["sale", "available"], 
                 "id": "a1"}
             ]
         },
@@ -123,6 +152,7 @@
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
+                "category": ["sale", "available"], 
                 "id": "a1"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
@@ -132,6 +162,7 @@
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
+                "category": ["sale", "available"], 
                 "id": "a1"}
             ]
         },
@@ -147,6 +178,7 @@
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
+                "category": ["sale", "available"], 
                 "id": "a1"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
@@ -156,6 +188,7 @@
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
+                "category": ["sale", "available"], 
                 "id": "a1"}
             ]
         },
@@ -171,6 +204,7 @@
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
+                "category": ["sale", "available"], 
                 "id": "a1"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
@@ -180,6 +214,7 @@
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
+                "category": ["sale", "available"], 
                 "id": "a1"}
             ]
         },
@@ -195,6 +230,7 @@
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
+                "category": ["sale", "available"], 
                 "id": "a1"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
@@ -204,6 +240,7 @@
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
+                "category": ["sale", "available"], 
                 "id": "a1"}
             ]
         },
@@ -219,6 +256,7 @@
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
+                "category": ["sale", "available"], 
                 "id": "a1"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
@@ -228,6 +266,7 @@
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
+                "category": ["sale", "available"], 
                 "id": "a1"}
             ]
         },
@@ -243,6 +282,7 @@
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
+                "category": ["sale", "available"], 
                 "id": "a1"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
@@ -252,6 +292,7 @@
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
+                "category": ["sale", "available"], 
                 "id": "a1"}
             ]
         },
@@ -267,6 +308,7 @@
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
+                "category": ["sale", "available"], 
                 "id": "a1"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
@@ -276,6 +318,7 @@
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
+                "category": ["sale", "available"], 
                 "id": "a1"}
             ]
         }

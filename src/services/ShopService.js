@@ -42,7 +42,7 @@ const useShopService = () => {
             sale: item.sale, 
             saleCount: item.saleCount, 
             newItem: item.newItem, 
-            id: item.id
+            category: item.category
         }
     }
 
@@ -51,7 +51,7 @@ const useShopService = () => {
             name: item.name,
             id: item.id,
             photo: item.photo,
-            subdirectory: item.subdirectory[0]
+            subdirectory: item.subdirectory
         }
     }
 

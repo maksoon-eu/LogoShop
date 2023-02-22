@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import useShopService from "../../services/ShopService";
 
 import Spinner from "../spiner/Spiner";
@@ -24,9 +24,54 @@ const CatalogList = () => {
         setFilters([])
     }, [comicId])
     
-    const onCatalogLoaded = (catalog) => {
-        setCatalog(catalog.itemList)
-        setActiveName(catalog.activeTab)
+    const onCatalogLoaded = (newCatalog) => {
+        setCatalog(newCatalog.itemList)
+        setActiveName(newCatalog.activeTab)
+    }
+
+
+    const updateCatalog = () => {
+        const catalogListAvailable = catalog.map((item, id) => {
+            if (filters.includes('available')) {
+                if (item.category.some(elem => elem === 'available')) {
+                    return (
+                        <ProductListItem catalog={item} key={id}/>
+                    )
+                }
+            }
+        })
+        const catalogListFunc = catalog.map((item, id) => {
+            const newFilters = filters.filter(filter => filter !== 'available')
+            if (newFilters.length === 0) {
+                return (
+                    <ProductListItem catalog={item} key={id}/>
+                ) 
+            } for (let i = 0; i < newFilters.length; i++) {
+                if (item.category.some(elem => elem === newFilters[i])) {
+                    return (
+                        <ProductListItem catalog={item} key={id}/>
+                    )
+                }
+            }
+        })
+
+
+        if (catalogListAvailable.filter(item => item !== undefined).length === 0) {
+            if (catalogListFunc.filter(item => item !== undefined).length === 0) {
+                return <h2 className="noTitle" >Товары не найдены</h2>
+            } return catalogListFunc
+        }
+
+        const list = catalogListAvailable.map(item => {
+            if (item !== undefined) {
+                return catalogListFunc.filter(elem => elem !== undefined ? elem.key === item.key : '')
+            } return false
+            
+        })
+
+        if (list.filter(item => item.length > 0).length === 0) {
+            return <h2 className="noTitle" >Товары не найдены</h2>
+        } return list
     }
 
     const filteredList = (newFilter) => {
@@ -41,13 +86,8 @@ const CatalogList = () => {
                 return el !== newFilter
             }))
         }
+    
     }
-
-    const catalogList = catalog.map((item, i) => {
-        return (
-            <ProductListItem catalog={item} key={i}/>
-        )
-    })
 
     const catalogTitle = activeName.map(({activeTab}, i) => {
         return (
@@ -57,12 +97,12 @@ const CatalogList = () => {
 
     const errorMessage = error ? <ErrorMessage/> : null
     const spinner = loading ? <Spinner/> : null
-    const content =  !(loading || error) ? catalogList : null
+    const content =  !(loading || error) ? updateCatalog() : null
 
     return (
         <div>
             {catalogTitle}
-            <CatalogFilter filteredList={filteredList} comicId={comicId}/>
+            <CatalogFilter getNewFilter={updateCatalog} filteredList={filteredList} comicId={comicId}/>
             <div className="catalog__block">
                 {errorMessage}
                 {spinner}

@@ -29,15 +29,13 @@ const InfoBlocks = () => {
     }
 
     const bloksList = infoBlocks.map(({name, photo, subdirectory, id}, i) => {
-        const subdirectoryKey = Object.keys(subdirectory)
-        const linkKey = subdirectoryKey.map((item, i) => {
-
+        const linkKey = subdirectory.map(({filterName}, i) => {
             return (
                 <div style={{display: 'flex', alignItems: 'center'}} key={i}>
-                    <a className="blocks__item-link" 
-                    href={Object.values(subdirectory)[i]}>{item}
-                    </a>
-                    <span style={{whiteSpace: 'pre', marginBottom: '2px'}}>{i === subdirectoryKey.length - 1 ? '' : ',  '}</span>
+                    <NavLink className="blocks__item-link" 
+                    to={`/${id}`}>{filterName}
+                    </NavLink>
+                    <span style={{whiteSpace: 'pre', marginBottom: '2px'}}>{i === subdirectory.length - 1 ? '' : ',  '}</span>
                 </div>
             )
         })

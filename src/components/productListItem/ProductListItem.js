@@ -49,7 +49,7 @@ const ProductListItem = ({catalog}) => {
     const twoItemActive = sale && newItem ? '108px' : '11px'
 
     let bgBtnColor = '#10B981'
-    if (available == false) {
+    if (available === false) {
         bgBtnColor = '#F3F4F6'
     } 
     if (toBag) {

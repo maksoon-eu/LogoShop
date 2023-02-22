@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import './catalogFilterItemData.scss'
 
-const CatalogFilterItemData = ({item, filteredList}) => {
+const CatalogFilterItemData = ({item, filteredList, getNewFilter}) => {
     const [styleFilter, setStyleFilter] = useState('')
 
     const onFilterActive = () => {
@@ -10,7 +10,7 @@ const CatalogFilterItemData = ({item, filteredList}) => {
     }
 
     return (
-        <div onClick={() => {onFilterActive(); filteredList(item)}} className={`filter__list-chek ${styleFilter ? 'filter__list-chek--active' : ''}`}>{item}</div>
+        <div onClick={() => {onFilterActive(); filteredList(item.filterNameProgram); getNewFilter()}} className={`filter__list-chek ${styleFilter ? 'filter__list-chek--active' : ''}`}>{item.filterName}</div>
     )
 };
 

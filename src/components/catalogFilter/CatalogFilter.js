@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import useShopService from "../../services/ShopService";
 import CatalogFilterItemData from "../catalogFilterItem/CatalogFilterItemData";
 
-const CatalogFilter = ({comicId, filteredList}) => {
+const CatalogFilter = ({comicId, filteredList, getNewFilter}) => {
     const filters = [
-        "В наличии",
-        "Новинки",
-        "Акции"
+        {filterName: "В наличии", filterNameProgram: 'available'},
+        {filterName: "Новинки", filterNameProgram: 'newItem'},
+        {filterName: "Акции", filterNameProgram: 'sale'}
     ]
 
     const [catalog, setCatalog] = useState([])
@@ -23,16 +23,14 @@ const CatalogFilter = ({comicId, filteredList}) => {
     }
 
     const filterDataList = catalog.map(({subdirectory}) => {
-        return Object.keys(subdirectory).map((item) => {
-            return (
-                <CatalogFilterItemData filteredList={filteredList} item={item} key={item} />
-            )
-        })
+        return (
+            <CatalogFilterItemData getNewFilter={getNewFilter} filteredList={filteredList} item={subdirectory} key={subdirectory.filterName} />
+        )
     })
 
     const filterList = filters.map((item, i) => {
         return (
-            <CatalogFilterItemData filteredList={filteredList} item={item} key={`${comicId}_${i}`} />
+            <CatalogFilterItemData getNewFilter={getNewFilter} filteredList={filteredList} item={item} key={`${comicId}_${i}`} />
         )
     })
 
