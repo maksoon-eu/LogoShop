@@ -1,9 +1,23 @@
 .catalog__block {
+    width: 100%;
     margin-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+}
+
+.filter__name {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.catalog__list {
+    display: flex;
+    justify-content: space-between;
 }
 
 .noTitle {

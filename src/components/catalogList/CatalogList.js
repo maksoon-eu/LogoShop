@@ -11,7 +11,9 @@ import './catalogList.scss'
 
 const CatalogList = () => {
     const [catalog, setCatalog] = useState([])
+    const [cost, setCost] = useState(0)
     const [activeName, setActiveName] = useState([])
+    const [available, setAvailable] = useState(0)
     const [filters, setFilters] = useState([])
     const {comicId} = useParams()
 
@@ -22,6 +24,7 @@ const CatalogList = () => {
             .then(onCatalogLoaded)
 
         setFilters([])
+        setAvailable(0)
     }, [comicId])
     
     const onCatalogLoaded = (newCatalog) => {
@@ -29,56 +32,31 @@ const CatalogList = () => {
         setActiveName(newCatalog.activeTab)
     }
 
-
-    const updateCatalog = () => {
-        const catalogListAvailable = catalog.map((item, id) => {
-            if (filters.includes('available')) {
-                if (item.category.some(elem => elem === 'available')) {
-                    return (
-                        <ProductListItem catalog={item} key={id}/>
-                    )
-                }
-            }
-        })
-        const catalogListFunc = catalog.map((item, id) => {
-            const newFilters = filters.filter(filter => filter !== 'available')
-            if (newFilters.length === 0) {
-                return (
-                    <ProductListItem catalog={item} key={id}/>
-                ) 
-            } for (let i = 0; i < newFilters.length; i++) {
-                if (item.category.some(elem => elem === newFilters[i])) {
-                    return (
-                        <ProductListItem catalog={item} key={id}/>
-                    )
-                }
-            }
-        })
-
-
-        if (catalogListAvailable.filter(item => item !== undefined).length === 0) {
-            if (catalogListFunc.filter(item => item !== undefined).length === 0) {
-                return <h2 className="noTitle" >Товары не найдены</h2>
-            } return catalogListFunc
-        }
-
-        const list = catalogListAvailable.map(item => {
-            if (item !== undefined) {
-                return catalogListFunc.filter(elem => elem !== undefined ? elem.key === item.key : '')
-            } return false
-            
-        })
-
-        if (list.filter(item => item.length > 0).length === 0) {
-            return <h2 className="noTitle" >Товары не найдены</h2>
-        } return list
+    const updateCost = (cost) => {
+        setCost(cost)
     }
+
+    const updateAvailable = () => {
+        setAvailable(available === 'available' ? '' : 'available')
+    }
+
+    const filterList = catalog.filter(n => (
+        (!available.length || n.category.map(elem => elem === available).includes(true)) &&
+        (!filters.length || n.category.map(elem => filters.includes(elem)).includes(true)) &&
+        (!cost[0] || cost[0] <= n.price) &&
+        (!cost[1] || cost[1] >= n.price)
+    ))
+
+    const catalogFilter = filterList.map((item, id) => {
+        return (
+            <ProductListItem catalog={item} key={id}/>
+        )
+    })
 
     const filteredList = (newFilter) => {
         if (filters.length === 0) {
             setFilters(filters.concat(newFilter))
         }
-
         if (!filters.some(item => item === newFilter)) {
             setFilters(filters.concat(newFilter))
         } else {
@@ -95,18 +73,21 @@ const CatalogList = () => {
         )
     })
 
+    const fiteredContent = !catalogFilter.length ? <h2 className="noTitle" >Товары не найдены</h2> : catalogFilter
     const errorMessage = error ? <ErrorMessage/> : null
     const spinner = loading ? <Spinner/> : null
-    const content =  !(loading || error) ? updateCatalog() : null
+    const content =  !(loading || error) ? fiteredContent : null
 
     return (
         <div>
             {catalogTitle}
-            <CatalogFilter getNewFilter={updateCatalog} filteredList={filteredList} comicId={comicId}/>
-            <div className="catalog__block">
-                {errorMessage}
-                {spinner}
-                {content}
+            <div className="catalog__list">
+                <CatalogFilter updateCost={updateCost} updateAvailable={updateAvailable} filteredList={filteredList} comicId={comicId}/>
+                <div className="catalog__block">
+                    {errorMessage}
+                    {spinner}
+                    {content}
+                </div>
             </div>
         </div>
     )

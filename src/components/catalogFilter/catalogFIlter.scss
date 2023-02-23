@@ -1,0 +1,73 @@
+@import '../../style/variables.scss';
+
+.filter__list {
+    margin-top: 30px;
+    width: 255px;
+    background: #F9FAFB;
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 25px;
+}
+
+.filter__line {
+    display: block;
+    margin: 10px 0;
+    width: 100%;
+    height: 1px;
+    border: 1px solid #E5E7EB;
+    transform: rotate(180deg);
+}
+
+.filter__text {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 22px;
+    color: #6B7280;
+}
+
+.filter__input {
+    position: relative;
+
+
+    & span:before {
+        transition: .1s linear;
+        position: absolute;
+        bottom: 0;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: #000;
+        transform: rotate(-180deg);
+    }
+    
+
+    &:first-of-type {
+        margin-right: 20px;
+    }
+}
+
+.filter__input input:focus+span:before {
+    background: $blue-color;
+}
+
+.filter__price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-input {
+        width: 77px;
+        outline: none;
+        border: none;
+        background-color: transparent;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 22px;
+        color: #000;
+
+        &::placeholder {
+            color: #6B7280;
+        }
+    }
+}
