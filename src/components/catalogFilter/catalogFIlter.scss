@@ -1,7 +1,6 @@
 @import '../../style/variables.scss';
 
 .filter__list {
-    margin-top: 30px;
     width: 255px;
     background: #F9FAFB;
     border-radius: 10px;
@@ -28,7 +27,6 @@
 .filter__input {
     position: relative;
 
-
     & span:before {
         transition: .1s linear;
         position: absolute;
@@ -41,7 +39,6 @@
         transform: rotate(-180deg);
     }
     
-
     &:first-of-type {
         margin-right: 20px;
     }
