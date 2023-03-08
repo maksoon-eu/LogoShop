@@ -26,6 +26,15 @@ const useShopService = () => {
         }
     }
 
+    const getCatalogElem = async (id) => {
+        const res = await request('http://localhost:3000/db.json');
+        let listArr = res.catalogItems.map(item => {
+            return item.itemList.find(elem => elem.id === id)
+        })
+        listArr = listArr.filter(item => item !== undefined)
+        return listArr.map(_transformCatalogItems)
+    }
+
     const _transformCatalogName = (item) => {
         return {
             activeTab: item.activeName,
@@ -42,7 +51,8 @@ const useShopService = () => {
             sale: item.sale, 
             saleCount: item.saleCount, 
             newItem: item.newItem, 
-            category: item.category
+            category: item.category,
+            id: item.id
         }
     }
 
@@ -61,7 +71,7 @@ const useShopService = () => {
         }
     }
 
-    return {getCatalog, getCatalogItems, loading, error}
+    return {getCatalog, getCatalogItems, getCatalogElem, loading, error}
 }
 
 export default useShopService;

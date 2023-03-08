@@ -3,6 +3,7 @@ import Nav from '../nav/Nav';
 import Footer from '../footer/Footer';
 import MainPage from "../pages/MainPage";
 import ItemsPage from '../pages/ItemsPage';
+import ElemPage from '../pages/ElemPage';
 
 import '../../style/style.scss'
 
@@ -12,9 +13,15 @@ import { useState } from 'react';
 
 const App = () => {
 
-    const [header, setHeader] = useState(localStorage.getItem('activeTab'))
+    const [header, setHeader] = useState()
+    const [activeId, setActiveId] = useState()
+    
     const headerForList = (name) => {
         setHeader(name)
+    }
+
+    const onRenderItem = (id) => {
+        setActiveId(id)
     }
 
     return (
@@ -24,7 +31,8 @@ const App = () => {
                 <Nav headerForList={headerForList}/>
                 <Routes>
                     <Route path="/" element={<MainPage/>}/>
-                    <Route path="/:comicId" element={<ItemsPage name={header}/>}/>
+                    <Route path="/:comicId" element={<ItemsPage name={header} onRenderItem={onRenderItem}/>}/>
+                    <Route path="/:comicId/:comicName" element={<ElemPage activeId={activeId}/>}/>
                 </Routes>
                 <Footer/>
             </div>

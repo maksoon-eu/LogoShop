@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { NavLink } from "react-router-dom";
 
 import raitingPlus from '../../resources/img/raitingPlus.svg';
 import raitingNone from '../../resources/img/raitingNone.svg';
@@ -8,9 +9,9 @@ import plus from '../../resources/img/plus.svg';
 import './productListItem.scss'
 
 
-const ProductListItem = ({catalog}) => {
+const ProductListItem = ({catalog, comicId, onRenderItem}) => {
 
-    const {photo, name, price, raiting, available, sale, saleCount, newItem} = catalog
+    const {photo, name, price, raiting, available, sale, saleCount, newItem, id} = catalog
 
     const [count, setCount] = useState(1)
     const [toBag, setToBag] = useState(false)
@@ -63,7 +64,7 @@ const ProductListItem = ({catalog}) => {
             <div className="list__item-img">
                 <img src={photo} alt="" />
             </div>
-            <a href="#" className="list__item-text">{name}</a>
+            <NavLink to={`/${comicId}/${id}`} end onClick={() => {onRenderItem(id)}} className="list__item-text">{name}</NavLink>
             <div className="list__item-raiting">
                 {yellowRaiting}
                 {grayRaiting}

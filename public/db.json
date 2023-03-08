@@ -80,14 +80,14 @@
             "itemList": [
                 {"photo": "/images/photo.svg",
                 "name": "APRO AQUA PP-R Компенсатор Белый 20",
-                "raiting": 3, 
+                "raiting": 2, 
                 "price": 1934.15, 
                 "available": true, 
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": true, 
                 "category": ["sale", "available", "newItem", "prp"], 
-                "id": "a1"},
+                "id": "2cf05d94db"},
                 {"photo": "/images/photo.svg",
                 "name": "CPRO AQUA PP-R Компенсатор Белый 20",
                 "raiting": 5, 
@@ -97,7 +97,7 @@
                 "saleCount": 20, 
                 "newItem": false, 
                 "category": ["prp"], 
-                "id": "a1"},
+                "id": "1cf15d94db"},
                 {"photo": "/images/photo.svg",
                 "name": "BPRO AQUA PP-R Компенсатор Белый 20",
                 "raiting": 0, 
@@ -107,17 +107,17 @@
                 "saleCount": 10, 
                 "newItem": true,
                 "category": ["newItem", "available"], 
-                "id": "a1"},
+                "id": "2cf05d94dfs"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
-                "raiting": 3, 
-                "price": 1934.15, 
+                "raiting": 4, 
+                "price": 1134.15, 
                 "available": true, 
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
                 "category": ["sale", "available"], 
-                "id": "a1"},
+                "id": "2cfers94db"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
                 "raiting": 3, 
@@ -127,17 +127,17 @@
                 "saleCount": 10, 
                 "newItem": false, 
                 "category": [""], 
-                "id": "a1"},
+                "id": "2cf388skkzz"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
-                "raiting": 3, 
-                "price": 1934.15, 
+                "raiting": 1, 
+                "price": 2934.15, 
                 "available": true, 
                 "sale": true, 
                 "saleCount": 10, 
                 "newItem": false, 
                 "category": ["sale", "available"], 
-                "id": "a1"}
+                "id": "2cf05e78sjdf"}
             ]
         },
         {
@@ -153,7 +153,7 @@
                 "saleCount": 10, 
                 "newItem": false, 
                 "category": ["sale", "available"], 
-                "id": "a1"},
+                "id": "2cf05d9dhha"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
                 "raiting": 3, 
@@ -163,7 +163,7 @@
                 "saleCount": 10, 
                 "newItem": false, 
                 "category": ["sale", "available"], 
-                "id": "a1"}
+                "id": "2cf05d946ydjd"}
             ]
         },
         {
@@ -179,7 +179,7 @@
                 "saleCount": 10, 
                 "newItem": false, 
                 "category": ["sale", "available"], 
-                "id": "a1"},
+                "id": "2cf05477dujd"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
                 "raiting": 3, 
@@ -189,7 +189,7 @@
                 "saleCount": 10, 
                 "newItem": false, 
                 "category": ["sale", "available"], 
-                "id": "a1"}
+                "id": "2cf05d94377ud"}
             ]
         },
         {
@@ -205,7 +205,7 @@
                 "saleCount": 10, 
                 "newItem": false, 
                 "category": ["sale", "available"], 
-                "id": "a1"},
+                "id": "2cf05d943uds"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
                 "raiting": 3, 
@@ -215,7 +215,7 @@
                 "saleCount": 10, 
                 "newItem": false, 
                 "category": ["sale", "available"], 
-                "id": "a1"}
+                "id": "36ysz05d94db"}
             ]
         },
         {
@@ -231,7 +231,7 @@
                 "saleCount": 10, 
                 "newItem": false, 
                 "category": ["sale", "available"], 
-                "id": "a1"},
+                "id": "2cf05483idkd"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
                 "raiting": 3, 
@@ -241,7 +241,7 @@
                 "saleCount": 10, 
                 "newItem": false, 
                 "category": ["sale", "available"], 
-                "id": "a1"}
+                "id": "2cf05d9sfkkc"}
             ]
         },
         {
@@ -257,7 +257,7 @@
                 "saleCount": 10, 
                 "newItem": false, 
                 "category": ["sale", "available"], 
-                "id": "a1"},
+                "id": "sdujdkamm323"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
                 "raiting": 3, 
@@ -267,7 +267,7 @@
                 "saleCount": 10, 
                 "newItem": false, 
                 "category": ["sale", "available"], 
-                "id": "a1"}
+                "id": "2cf053400fwdf"}
             ]
         },
         {
@@ -283,7 +283,7 @@
                 "saleCount": 10, 
                 "newItem": false, 
                 "category": ["sale", "available"], 
-                "id": "a1"},
+                "id": "2cf0eiricdv"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
                 "raiting": 3, 
@@ -293,7 +293,7 @@
                 "saleCount": 10, 
                 "newItem": false, 
                 "category": ["sale", "available"], 
-                "id": "a1"}
+                "id": "2cf05d94348fik"}
             ]
         },
         {
@@ -309,7 +309,7 @@
                 "saleCount": 10, 
                 "newItem": false, 
                 "category": ["sale", "available"], 
-                "id": "a1"},
+                "id": "2cf05d94dbsdkk"},
                 {"photo": "/images/photo.svg",
                 "name": "PRO AQUA PP-R Компенсатор Белый 20",
                 "raiting": 3, 
@@ -319,7 +319,7 @@
                 "saleCount": 10, 
                 "newItem": false, 
                 "category": ["sale", "available"], 
-                "id": "a1"}
+                "id": "2cf05d94weijf"}
             ]
         }
     ]

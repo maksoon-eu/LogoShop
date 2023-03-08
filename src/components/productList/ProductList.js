@@ -10,7 +10,6 @@ import catalogImg from '../../resources/img/catalog.svg'
 
 
 const ProductList = ({title, comicId}) => {
-
     const [catalog, setCatalog] = useState([])
 
     const {getCatalogItems, error, loading} = useShopService();
@@ -24,9 +23,9 @@ const ProductList = ({title, comicId}) => {
         setCatalog(catalog.itemList)
     }
 
-    const catalogList = catalog.map((item, i) => {
+    const catalogList = catalog.map(item => {
         return (
-            <ProductListItem catalog={item} key={i}/>
+            <ProductListItem catalog={item} comicId={comicId} key={item.id}/>
         )
     })
 

@@ -10,7 +10,7 @@ import CatalogSort from "../catalogSort/CatalogSort";
 
 import './catalogList.scss'
 
-const CatalogList = () => {
+const CatalogList = ({onRenderItem}) => {
     const [catalog, setCatalog] = useState([])
     const [cost, setCost] = useState(0)
     const [activeName, setActiveName] = useState([])
@@ -87,9 +87,9 @@ const CatalogList = () => {
         return filterList
     }
 
-    const catalogFilter = aaa().map((item, id) => {
+    const catalogFilter = aaa().map(item => {
         return (
-            <ProductListItem catalog={item} key={id}/>
+            <ProductListItem onRenderItem={onRenderItem} comicId={comicId} catalog={item} key={item.id}/>
         )
     })
 

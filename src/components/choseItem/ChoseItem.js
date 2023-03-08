@@ -1,0 +1,224 @@
+import { useState } from 'react';
+import { useParams } from "react-router-dom";
+import moment from 'moment'
+
+
+import ChoseSlider from '../choseSlider/ChoseSlider';
+import AddRewiewForm from '../addRewiewForm/AddRewiewForm';
+
+import raitingPlus from '../../resources/img/raitingPlus.svg';
+import raitingNone from '../../resources/img/raitingNone.svg';
+import minus from '../../resources/img/minus.svg';
+import plus from '../../resources/img/plus.svg';
+import home from '../../resources/img/home.svg';
+import ride from '../../resources/img/ride.svg';
+
+import './choseItem.scss'
+
+const ChozeItem = ({catalog}) => {
+    const [count, setCount] = useState(1)
+    const [toBag, setToBag] = useState(false)
+    const {comicId} = useParams()
+
+    const [rewiew, setRewiew] = useState([
+        {name: 'Игорь', text: 'Тут написан отзыв', adv: 'Достоинства', disadv: 'Недостатки', newRaiting: 3}
+    ])
+
+    const {photo, name, price, raiting, available, sale, saleCount, newItem, id} = catalog
+
+    const onAddRewiew = (name, text, adv, disadv, newRaiting) => {
+        const newItem = {
+            name, 
+            text,
+            adv,
+            disadv,
+            newRaiting
+        }
+
+        setRewiew(rewiew => rewiew.concat(newItem))
+    }
+
+    const addToBag = () => {
+        setToBag(toBag => !toBag)
+    }
+
+    const calcPlus = () => {
+        if (count > 0) {
+            setCount(count + 1)
+        }
+    }
+
+    const calcMinus = () => {
+        if (count > 1) {
+            setCount(count - 1)
+        }
+    }
+
+    const addAllRaiting = (newRaining) => {
+        const allRaiting = []
+        for (let i = 0; i < newRaining; i++) {
+            allRaiting.push(<img key={i} src={raitingPlus} alt="" />)
+        }
+        for (let i = 5; i < 10 - newRaining; i++) {
+            allRaiting.push(<img key={i} src={raitingNone} alt="" />)
+        }
+        return allRaiting
+    }
+
+    const rewiewList = rewiew.map((item, i) => {
+        const stars = addAllRaiting(item.newRaiting)
+
+        return (
+            <div key={`${comicId}_${i}`} className="rewiews__block-item">
+                <div className="rewiews__item-name">{item.name}</div>
+                <div className="rewiews__item-text">{item.text}</div>
+                <div className="rewiews__item-name">Достоинства</div>
+                <div className="rewiews__item-text">{item.adv}</div>
+                <div className="rewiews__item-name">Недостатки</div>
+                <div className="rewiews__item-text">{item.disadv}</div>
+                <div className="rewiews__item-abs">
+                    <div className="rewiews__item-data">{moment().format("DD.MM.YYYY")}</div>
+                    <div className="rewiews__item-raiting">{stars}</div>
+                </div>
+            </div>
+        )
+    })
+
+    let bgBtnColor = '#10B981'
+    if (available === false) {
+        bgBtnColor = '#F3F4F6'
+    } 
+    if (toBag) {
+        bgBtnColor = '#064E3B'
+    }
+
+    const stars = addAllRaiting(raiting)
+    const newChek = newItem ? 'flex' : 'none'
+    const saleChek = sale && available ? 'flex' : 'none'
+    const btnDisabled = available ? false : true
+    const calcBtnDisabled = toBag || !available ? true : false
+    const saleColor = sale && available ? '#DC2626' : '#000000'
+
+    return (
+        <>
+            <div className="item">
+                <div className="item__left">
+                    <div className="item__left-name">{name}</div>
+                    <ChoseSlider photo={photo} />
+                </div>
+                <div className="item__right">
+                    <div className="item__right-id">{`Код: ${id}`}</div>
+                    <div className="item__right-mod">
+                        <div className="item__right-sale">{`-${saleCount}%`}</div>
+                        <div className="item__right-new" style={{display: newChek}}>Новинка</div>
+                    </div>
+                    <div className="item__right-price">
+                        <div className="item__right-newPrice" style={{color: saleColor}}>{available ? `${price} ₽` : 'Нет в наличии'}</div>
+                        <div className="item__right-oldPrice" style={{display: saleChek}}>{`${(price * (1 + saleCount / 100)).toFixed(2)} ₽`}</div>
+                    </div>
+                    <div className="item__right-raiting">
+                        {stars}
+                    </div>
+                    <div className="list__btn item__btn">
+                        <div className="calc">
+                            <button disabled={calcBtnDisabled} className="calc__btn" onClick={calcMinus}>
+                                <img src={minus} alt="" />
+                            </button>
+                            {count}
+                            <button disabled={calcBtnDisabled} className="calc__btn" onClick={calcPlus}>
+                                <img src={plus} alt="" />
+                            </button>
+                        </div>
+                        <div className="list__btn items__btn">
+                            <button onClick={addToBag} disabled={btnDisabled} style={{backgroundColor: bgBtnColor}} className='list__btn-item item__btn-item'><span>В корзину</span></button>
+                        </div>
+                    </div>
+                    <div className="line"></div>
+                    <div className="item__right-ride">
+                        <div className="ride">
+                            <div className="ride__img">
+                                <img src={home} alt="" />
+                            </div>
+                            <div className="ride__text">
+                                <a href="#">Самовывоз</a> сегодня через 2 часа
+                            </div>
+                        </div>
+                        <div className="ride">
+                            <div className="ride__img">
+                                <img src={ride} alt="" />
+                            </div>
+                            <div className="ride__text">
+                                <a href="#">Доставка</a> завтра до 18:00
+                            </div>
+                        </div>
+                    </div>
+                    <div className="line"></div>
+                    <div className="item__right-descr">
+                        <div className="descr">
+                            <div className="descr__text">Харакетристика</div>
+                            <div className="descr__dash"></div>
+                            <div className="descr__text">111</div>
+                        </div>
+                        <div className="descr">
+                            <div className="descr__text">Харакетристика</div>
+                            <div className="descr__dash"></div>
+                            <div className="descr__text">222</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="translate">
+                <div className="translate__title">Описание</div>
+                <div className="translate__text">Тип товара: Арматура PPR; Бренд: Pro Aqua; Применение: описание описание описание описание описание описание описание описание описание описание описание описание описание описание описаниеТип товара: Арматура PPR; Бренд: Pro Aqua; Применение: описание описание описание описание описание описание описание описание описание описание описание описание описание описание описаниеТип товара: Арматура PPR; Бренд: Pro Aqua; Применение: описание описание описание описание описание описание описание описание описание описание описание описание описание описание описание</div>
+            </div>
+            <div className="modific">
+                <div className="translate__title">Характеристики</div>
+                <div className="item__right-descr modific__descr">
+                    <div className="descr">
+                        <div className="descr__text">Харакетристика</div>
+                        <div className="descr__dash"></div>
+                        <div className="descr__text">222</div>
+                    </div>
+                    <div className="descr">
+                        <div className="descr__text">Харакетристика</div>
+                        <div className="descr__dash"></div>
+                        <div className="descr__text">222</div>
+                    </div>
+                    <div className="descr">
+                        <div className="descr__text">Харакетристика</div>
+                        <div className="descr__dash"></div>
+                        <div className="descr__text">222</div>
+                    </div>
+                    <div className="descr">
+                        <div className="descr__text">Харакетристика</div>
+                        <div className="descr__dash"></div>
+                        <div className="descr__text">222</div>
+                    </div>
+                    <div className="descr">
+                        <div className="descr__text">Харакетристика</div>
+                        <div className="descr__dash"></div>
+                        <div className="descr__text">222</div>
+                    </div>
+                    <div className="descr">
+                        <div className="descr__text">Харакетристика</div>
+                        <div className="descr__dash"></div>
+                        <div className="descr__text">222</div>
+                    </div>
+                </div>
+            </div>
+            <div className="rewiews">
+                <div className="translate__title">Отзывы</div>
+                <div className="rewiews__flex">
+                    <div className="rewiews__block">
+                        {rewiewList}
+                    </div>
+                    <div className="rewiew__form">
+                        <AddRewiewForm onAddRewiew={onAddRewiew}/>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+};
+
+export default ChozeItem;
