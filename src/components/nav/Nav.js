@@ -32,7 +32,6 @@ const Nav = ({headerForList}) => {
                 key={i}
                 onClick={() => headerForList(name)}
                 className="nav__block-item"
-                end
                 style={({isActive}) => isActive ? activeStyle : undefined}
                 >{name}</NavLink>
         )
@@ -41,7 +40,7 @@ const Nav = ({headerForList}) => {
     return (
         <nav>
             <div className="nav__block">
-                <NavLink to={'/'} className="nav__block-item nav__block-item--main">
+                <NavLink to='/' className="nav__block-item nav__block-item--main">
                     <img src={catalog1} alt="catalog" />
                     Каталог
                 </NavLink>

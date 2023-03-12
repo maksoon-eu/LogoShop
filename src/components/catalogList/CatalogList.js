@@ -17,6 +17,9 @@ const CatalogList = ({onRenderItem}) => {
     const [available, setAvailable] = useState(0)
     const [filters, setFilters] = useState([])
     const [sortItem, setSortItem] = useState()
+    const [activeCount, setActiveCount] = useState(0)
+    const [newItemLoading, setNewItemLoading] = useState(false)
+    const [itemEnded, setItemEnded] = useState(false)
     const {comicId} = useParams()
 
     const sort = [
@@ -29,17 +32,40 @@ const CatalogList = ({onRenderItem}) => {
     const {getCatalogItems, error, loading} = useShopService();
 
     useEffect(() => {
-        getCatalogItems(comicId)
-            .then(onCatalogLoaded)
+        setActiveCount(0)
+        setCatalog([])
+
+        onRequest(true)
 
         setFilters([])
         setAvailable(0)
         setSortItem()
+        setItemEnded(false)
     }, [comicId])
+
+    const onRequest = (initial) => {
+        initial ? setNewItemLoading(false) : setNewItemLoading(true)
+        getCatalogItems(comicId, 0, 6)
+            .then(onCatalogLoaded)
+        setActiveCount(activeCount => activeCount + 6)
+    }
+
+    const onUpdateList = (count, initial) => {
+        initial ? setNewItemLoading(false) : setNewItemLoading(true)
+        console.log(activeCount)
+        getCatalogItems(comicId, count - 6, count)
+            .then(onCatalogLoaded)
+        setActiveCount(activeCount => activeCount + 6)
+    }
     
     const onCatalogLoaded = (newCatalog) => {
-        setCatalog(newCatalog.itemList)
+        if (newCatalog.itemList.length < 6) {
+            setItemEnded(true)
+        }
+
+        setCatalog(catalog => [...catalog, ...newCatalog.itemList])
         setActiveName(newCatalog.activeTab)
+        setNewItemLoading(false)
     }
 
     const updateCost = (cost) => {
@@ -61,7 +87,7 @@ const CatalogList = ({onRenderItem}) => {
         setSortItem(sort => sort === sortNew ? '' : sortNew)
     }
 
-    const aaa = () => {
+    function sortingItems() {
         if (sortItem === 'expensive') {
             return filterList.sort((a, b) => b.price - a.price)
         }
@@ -87,7 +113,7 @@ const CatalogList = ({onRenderItem}) => {
         return filterList
     }
 
-    const catalogFilter = aaa().map(item => {
+    const catalogFilter = sortingItems().map(item => {
         return (
             <ProductListItem onRenderItem={onRenderItem} comicId={comicId} catalog={item} key={item.id}/>
         )
@@ -121,8 +147,7 @@ const CatalogList = ({onRenderItem}) => {
 
     const fiteredContent = !catalogFilter.length && !loading && !error ? <h2 className="noTitle" >Товары не найдены</h2> : catalogFilter
     const errorMessage = error ? <ErrorMessage/> : null
-    const spinner = loading ? <Spinner/> : null
-    const content =  !(loading || error) ? fiteredContent : null
+    const spinner = loading && !newItemLoading ? <Spinner/> : null
 
     return (
         <div>
@@ -136,8 +161,13 @@ const CatalogList = ({onRenderItem}) => {
                     <div className="catalog__block">
                         {errorMessage}
                         {spinner}
-                        {content}
+                        {fiteredContent}
                     </div>
+                    <button 
+                        disabled={newItemLoading}
+                        className="error__btn more__btn"
+                        style={{'display' : itemEnded ? 'none' : 'block'}}
+                        onClick={() => {onUpdateList(activeCount + 6, false)}}><span>Ещё</span></button>
                 </div>
             </div>
         </div>

@@ -15,13 +15,13 @@ const useShopService = () => {
         }
     }
 
-    const getCatalogItems = async (id, count) => {
+    const getCatalogItems = async (id, startCount = 0, endCount) => {
         const res = await request('http://localhost:3000/db.json');
         const listArr = res.catalogItems.find(item => item.id === id)
-        count = count === undefined ? listArr.itemList.lenght : count
+        endCount = endCount === undefined ? listArr.itemList.lenght : endCount
         
         return {
-            itemList: listArr.itemList.slice(0, count).map(_transformCatalogItems),
+            itemList: listArr.itemList.slice(startCount, endCount).map(_transformCatalogItems),
             activeTab: listArr.activeTab.map(_transformCatalogName)
         }
     }

@@ -4,6 +4,7 @@ import Footer from '../footer/Footer';
 import MainPage from "../pages/MainPage";
 import ItemsPage from '../pages/ItemsPage';
 import ElemPage from '../pages/ElemPage';
+import ErrorPage from '../pages/ErrorPage';
 
 import '../../style/style.scss'
 
@@ -30,9 +31,10 @@ const App = () => {
                 <Header/>
                 <Nav headerForList={headerForList}/>
                 <Routes>
-                    <Route path="/" element={<MainPage/>}/>
+                    <Route path="/" element={<MainPage onRenderItem={onRenderItem}/>}/>
                     <Route path="/:comicId" element={<ItemsPage name={header} onRenderItem={onRenderItem}/>}/>
                     <Route path="/:comicId/:comicName" element={<ElemPage activeId={activeId}/>}/>
+                    <Route path="*" element={<ErrorPage/>}/>
                 </Routes>
                 <Footer/>
             </div>

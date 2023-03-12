@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { NavLink } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import raitingPlus from '../../resources/img/raitingPlus.svg';
 import raitingNone from '../../resources/img/raitingNone.svg';
 import minus from '../../resources/img/minus.svg';
 import plus from '../../resources/img/plus.svg';
+import loading from '../../resources/img/loading.svg';
 
 import './productListItem.scss'
 
@@ -62,9 +64,14 @@ const ProductListItem = ({catalog, comicId, onRenderItem}) => {
             <div className="list__item-sale" style={{display: saleChek, right: twoItemActive}}>{`-${saleCount}%`}</div>
             <div className="list__item-new" style={{display: newChek}}>Новинка</div>
             <div className="list__item-img">
-                <img src={photo} alt="" />
+                <LazyLoadImage 
+                    width='100%' height='100%'
+                    src={photo}
+                    placeholderSrc={loading}
+                    alt="Item img"
+                />
             </div>
-            <NavLink to={`/${comicId}/${id}`} end onClick={() => {onRenderItem(id)}} className="list__item-text">{name}</NavLink>
+            <NavLink to={`/${comicId}/${id}`} onClick={() => {onRenderItem(id)}} className="list__item-text">{name}</NavLink>
             <div className="list__item-raiting">
                 {yellowRaiting}
                 {grayRaiting}

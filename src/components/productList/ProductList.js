@@ -9,13 +9,13 @@ import './productList.scss'
 import catalogImg from '../../resources/img/catalog.svg'
 
 
-const ProductList = ({title, comicId}) => {
+const ProductList = ({title, comicId, onRenderItem}) => {
     const [catalog, setCatalog] = useState([])
 
     const {getCatalogItems, error, loading} = useShopService();
 
     useEffect(() => {
-        getCatalogItems(comicId, 4)
+        getCatalogItems(comicId, 0, 4)
             .then(onCatalogLoaded)
     }, [])
     
@@ -25,7 +25,7 @@ const ProductList = ({title, comicId}) => {
 
     const catalogList = catalog.map(item => {
         return (
-            <ProductListItem catalog={item} comicId={comicId} key={item.id}/>
+            <ProductListItem onRenderItem={onRenderItem} catalog={item} comicId={comicId} key={item.id}/>
         )
     })
 

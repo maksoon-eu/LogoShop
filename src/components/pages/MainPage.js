@@ -5,17 +5,17 @@ import EmailBanner from '../emailBanner/EmailBanner';
 import RideBanner from '../rideBanner/RideBanner';
 import Manufacturer from '../manufacturer/Manufacturer';
 
-const MainPage = () => {
+const MainPage = ({onRenderItem}) => {
     return (
         <>
             <Slider/>
             <InfoBlocks/>
-            <ProductList title={'Арматура'} comicId={'fittings'}/>
+            <ProductList onRenderItem={onRenderItem} title={'Арматура'} comicId={'fittings'}/>
             <EmailBanner/>
-            <ProductList title={'Вентиляция и кондиционирование'} comicId={'ventilation'}/>
-            <ProductList title={'Изоляционные материалы'} comicId={'isolation'}/>
+            <ProductList onRenderItem={onRenderItem} title={'Вентиляция и кондиционирование'} comicId={'ventilation'}/>
+            <ProductList onRenderItem={onRenderItem} title={'Изоляционные материалы'} comicId={'isolation'}/>
             <Manufacturer/>
-            <ProductList title={'Вам может понадобиться'} comicId={'fittings'}/>
+            <ProductList onRenderItem={onRenderItem} title={'Вам может понадобиться'} comicId={'fittings'}/>
             <RideBanner/>
         </>
     );
