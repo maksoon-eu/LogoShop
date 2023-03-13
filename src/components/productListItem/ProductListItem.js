@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
@@ -11,28 +11,24 @@ import loading from '../../resources/img/loading.svg';
 import './productListItem.scss'
 
 
-const ProductListItem = ({catalog, comicId, onRenderItem}) => {
+const ProductListItem = ({catalog, comicId, onRenderItem, onAddToBag, bagList}) => {
 
     const {photo, name, price, raiting, available, sale, saleCount, newItem, id} = catalog
 
     const [count, setCount] = useState(1)
     const [toBag, setToBag] = useState(false)
 
-    const addToBag = () => {
-        setToBag(toBag => !toBag)
-    }
-
-    const calcPlus = () => {
-        if (count > 0) {
-            setCount(count + 1)
+    useEffect(() => {
+        if (bagList.length > 0) {
+            if (bagList.some(item => item.id === catalog.id)) {
+                setToBag(true)
+            } else {
+                setToBag(false)
+            }
+        } else {
+            setToBag(false)
         }
-    }
-
-    const calcMinus = () => {
-        if (count > 1) {
-            setCount(count - 1)
-        }
-    }
+    }, [bagList])
 
     const yellowRaiting = []
     for (let i = 0; i < raiting; i++) {
@@ -47,7 +43,6 @@ const ProductListItem = ({catalog, comicId, onRenderItem}) => {
     const newChek = newItem ? 'flex' : 'none'
     const saleChek = sale && available ? 'flex' : 'none'
     const btnDisabled = available ? false : true
-    const calcBtnDisabled = toBag || !available ? true : false
     const saleColor = sale && available ? '#DC2626' : '#000000'
     const twoItemActive = sale && newItem ? '108px' : '11px'
 
@@ -81,17 +76,8 @@ const ProductListItem = ({catalog, comicId, onRenderItem}) => {
                 <div className="list__item-oldPrice" style={{display: saleChek}}>{(price * (1 + saleCount / 100)).toFixed(2)}</div>
             </div>
             <div className="list__btn">
-                <div className="calc">
-                    <button disabled={calcBtnDisabled} className="calc__btn" onClick={calcMinus}>
-                        <img src={minus} alt="" />
-                    </button>
-                    {count}
-                    <button disabled={calcBtnDisabled} className="calc__btn" onClick={calcPlus}>
-                        <img src={plus} alt="" />
-                    </button>
-                </div>
                 <div className="list__btn">
-                    <button onClick={addToBag} disabled={btnDisabled} style={{backgroundColor: bgBtnColor}} className='list__btn-item'><span>В корзину</span></button>
+                    <button onClick={() => {onAddToBag(catalog, price)}} disabled={btnDisabled} style={{backgroundColor: bgBtnColor}} className='list__btn-item'><span>В корзину</span></button>
                 </div>
             </div>
         </div>

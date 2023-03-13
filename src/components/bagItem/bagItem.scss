@@ -1,0 +1,54 @@
+@import '../../style/variables.scss';
+
+.bagItem {
+    width: 100%;
+    background: #FFFFFF;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+    padding: 16px 35px;
+    transition: .1s linear;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    &:not(:last-of-type) {
+        margin-bottom: 20px;
+    }
+
+    &:hover {
+        border-color: $blue-color;
+    }
+
+    &__name {
+        display: flex;
+        flex-direction: column;
+
+        &-text {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 25px;
+            
+            color: #141821;
+        }
+
+        &-id {
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 15px;
+            color: #000000;
+        }
+    }
+
+    &__price {
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 15px;
+        color: #000000;
+    }
+
+    &__delete {
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+}

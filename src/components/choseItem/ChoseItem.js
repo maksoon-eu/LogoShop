@@ -14,11 +14,24 @@ import home from '../../resources/img/home.svg';
 import ride from '../../resources/img/ride.svg';
 
 import './choseItem.scss'
+import { useEffect } from 'react';
 
-const ChozeItem = ({catalog}) => {
+const ChozeItem = ({catalog, onAddToBag, bagList}) => {
     const [count, setCount] = useState(1)
     const [toBag, setToBag] = useState(false)
     const {comicId} = useParams()
+
+    useEffect(() => {
+        if (bagList.length > 0) {
+            if (bagList.some(item => item.id === catalog.id)) {
+                setToBag(true)
+            } else {
+                setToBag(false)
+            }
+        } else {
+            setToBag(false)
+        }
+    }, [bagList])
 
     const [rewiew, setRewiew] = useState([
         {name: 'Игорь', text: 'Тут написан отзыв', adv: 'Достоинства', disadv: 'Недостатки', newRaiting: 3}
@@ -36,22 +49,6 @@ const ChozeItem = ({catalog}) => {
         }
 
         setRewiew(rewiew => rewiew.concat(newItem))
-    }
-
-    const addToBag = () => {
-        setToBag(toBag => !toBag)
-    }
-
-    const calcPlus = () => {
-        if (count > 0) {
-            setCount(count + 1)
-        }
-    }
-
-    const calcMinus = () => {
-        if (count > 1) {
-            setCount(count - 1)
-        }
     }
 
     const addAllRaiting = (newRaining) => {
@@ -96,7 +93,6 @@ const ChozeItem = ({catalog}) => {
     const newChek = newItem ? 'flex' : 'none'
     const saleChek = sale && available ? 'flex' : 'none'
     const btnDisabled = available ? false : true
-    const calcBtnDisabled = toBag || !available ? true : false
     const saleColor = sale && available ? '#DC2626' : '#000000'
 
     return (
@@ -120,17 +116,8 @@ const ChozeItem = ({catalog}) => {
                         {stars}
                     </div>
                     <div className="list__btn item__btn">
-                        <div className="calc">
-                            <button disabled={calcBtnDisabled} className="calc__btn" onClick={calcMinus}>
-                                <img src={minus} alt="" />
-                            </button>
-                            {count}
-                            <button disabled={calcBtnDisabled} className="calc__btn" onClick={calcPlus}>
-                                <img src={plus} alt="" />
-                            </button>
-                        </div>
                         <div className="list__btn items__btn">
-                            <button onClick={addToBag} disabled={btnDisabled} style={{backgroundColor: bgBtnColor}} className='list__btn-item item__btn-item'><span>В корзину</span></button>
+                            <button onClick={() => {onAddToBag(catalog, price)}} disabled={btnDisabled} style={{backgroundColor: bgBtnColor}} className='list__btn-item item__btn-item'><span>В корзину</span></button>
                         </div>
                     </div>
                     <div className="line"></div>

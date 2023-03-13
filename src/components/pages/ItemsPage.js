@@ -1,8 +1,8 @@
 import CatalogList from "../catalogList/CatalogList";
 
-const ItemsPage = ({name, onRenderItem}) => {
+const ItemsPage = ({name, onRenderItem, onAddToBag, bagList}) => {
     return (
-        <CatalogList onRenderItem={onRenderItem} name={name}/>
+        <CatalogList bagList={bagList} onAddToBag={onAddToBag} onRenderItem={onRenderItem} name={name}/>
     )
 };
 

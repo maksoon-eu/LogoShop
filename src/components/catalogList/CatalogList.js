@@ -10,7 +10,7 @@ import CatalogSort from "../catalogSort/CatalogSort";
 
 import './catalogList.scss'
 
-const CatalogList = ({onRenderItem}) => {
+const CatalogList = ({onRenderItem, onAddToBag, bagList}) => {
     const [catalog, setCatalog] = useState([])
     const [cost, setCost] = useState(0)
     const [activeName, setActiveName] = useState([])
@@ -52,7 +52,6 @@ const CatalogList = ({onRenderItem}) => {
 
     const onUpdateList = (count, initial) => {
         initial ? setNewItemLoading(false) : setNewItemLoading(true)
-        console.log(activeCount)
         getCatalogItems(comicId, count - 6, count)
             .then(onCatalogLoaded)
         setActiveCount(activeCount => activeCount + 6)
@@ -115,7 +114,7 @@ const CatalogList = ({onRenderItem}) => {
 
     const catalogFilter = sortingItems().map(item => {
         return (
-            <ProductListItem onRenderItem={onRenderItem} comicId={comicId} catalog={item} key={item.id}/>
+            <ProductListItem bagList={bagList} onAddToBag={onAddToBag} onRenderItem={onRenderItem} comicId={comicId} catalog={item} key={item.id}/>
         )
     })
 
