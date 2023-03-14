@@ -4,8 +4,6 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import raitingPlus from '../../resources/img/raitingPlus.svg';
 import raitingNone from '../../resources/img/raitingNone.svg';
-import minus from '../../resources/img/minus.svg';
-import plus from '../../resources/img/plus.svg';
 import loading from '../../resources/img/loading.svg';
 
 import './productListItem.scss'
@@ -15,7 +13,6 @@ const ProductListItem = ({catalog, comicId, onRenderItem, onAddToBag, bagList}) 
 
     const {photo, name, price, raiting, available, sale, saleCount, newItem, id} = catalog
 
-    const [count, setCount] = useState(1)
     const [toBag, setToBag] = useState(false)
 
     useEffect(() => {
@@ -44,6 +41,7 @@ const ProductListItem = ({catalog, comicId, onRenderItem, onAddToBag, bagList}) 
     const saleChek = sale && available ? 'flex' : 'none'
     const btnDisabled = available ? false : true
     const saleColor = sale && available ? '#DC2626' : '#000000'
+    const availableColor = !available ? '#D1D5DB' : saleColor
     const twoItemActive = sale && newItem ? '108px' : '11px'
 
     let bgBtnColor = '#10B981'
@@ -72,13 +70,12 @@ const ProductListItem = ({catalog, comicId, onRenderItem, onAddToBag, bagList}) 
                 {grayRaiting}
             </div>
             <div className="list__price">
-                <div className="list__item-price" style={{color: saleColor}}>{available ? price : 'Нет в наличии'}</div>
+                <div className="list__item-price" style={{color: availableColor}}>{`${price} ₽`}</div>
                 <div className="list__item-oldPrice" style={{display: saleChek}}>{(price * (1 + saleCount / 100)).toFixed(2)}</div>
             </div>
+            <div className="list__item-available">{available ? '' : 'Нет в наличии'}</div>
             <div className="list__btn">
-                <div className="list__btn">
-                    <button onClick={() => {onAddToBag(catalog, price)}} disabled={btnDisabled} style={{backgroundColor: bgBtnColor}} className='list__btn-item'><span>В корзину</span></button>
-                </div>
+                <button onClick={() => {onAddToBag(catalog, price)}} disabled={btnDisabled} style={{backgroundColor: bgBtnColor}} className='list__btn-item'><span>В корзину</span></button>
             </div>
         </div>
     )

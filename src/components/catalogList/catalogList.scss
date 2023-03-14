@@ -17,6 +17,24 @@
 .catalog__list {
     margin-top: 30px;
     display: flex;
+
+    &-mod {
+        cursor: pointer;
+    }
+
+    &-group {
+        margin-left: 30px;
+        display: flex;
+        align-items: center;
+        
+        .catalog__list-mod {
+            height: 16px;
+            &:not(:last-of-type) {
+                margin-right: 15px;
+                margin-top: -1px;
+            }
+        }
+    }
 }
 
 .sort__block {

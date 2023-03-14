@@ -8,8 +8,6 @@ import AddRewiewForm from '../addRewiewForm/AddRewiewForm';
 
 import raitingPlus from '../../resources/img/raitingPlus.svg';
 import raitingNone from '../../resources/img/raitingNone.svg';
-import minus from '../../resources/img/minus.svg';
-import plus from '../../resources/img/plus.svg';
 import home from '../../resources/img/home.svg';
 import ride from '../../resources/img/ride.svg';
 
@@ -17,7 +15,6 @@ import './choseItem.scss'
 import { useEffect } from 'react';
 
 const ChozeItem = ({catalog, onAddToBag, bagList}) => {
-    const [count, setCount] = useState(1)
     const [toBag, setToBag] = useState(false)
     const {comicId} = useParams()
 
@@ -115,10 +112,8 @@ const ChozeItem = ({catalog, onAddToBag, bagList}) => {
                     <div className="item__right-raiting">
                         {stars}
                     </div>
-                    <div className="list__btn item__btn">
-                        <div className="list__btn items__btn">
-                            <button onClick={() => {onAddToBag(catalog, price)}} disabled={btnDisabled} style={{backgroundColor: bgBtnColor}} className='list__btn-item item__btn-item'><span>В корзину</span></button>
-                        </div>
+                    <div className="list__btn items__btn">
+                        <button onClick={() => {onAddToBag(catalog, price)}} disabled={btnDisabled} style={{backgroundColor: bgBtnColor}} className='list__btn-item item__btn-item'><span>В корзину</span></button>
                     </div>
                     <div className="line"></div>
                     <div className="item__right-ride">
