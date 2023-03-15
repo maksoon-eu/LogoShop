@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useParams } from "react-router-dom";
 import moment from 'moment'
 
@@ -86,7 +86,7 @@ const ChozeItem = ({catalog, onAddToBag, bagList}) => {
         bgBtnColor = '#064E3B'
     }
 
-    const stars = addAllRaiting(raiting)
+    const stars = useMemo(() => addAllRaiting(raiting), []);
     const newChek = newItem ? 'flex' : 'none'
     const saleChek = sale && available ? 'flex' : 'none'
     const btnDisabled = available ? false : true

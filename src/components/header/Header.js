@@ -1,28 +1,94 @@
 import { NavLink } from "react-router-dom";
+import { useState, useEffect, useMemo } from "react";
+import useShopService from "../../services/ShopService";
+
+import Spinner from "../spiner/Spiner";
+import ErrorMessage from "../errorMessage/ErorrMessage";
+import SearchItem from "../searchItem/SearchItem";
 
 import logo from '../../resources/img/logo-header.svg'
 import time from '../../resources/img/time.svg'
 import phone from '../../resources/img/phone.svg'
 
 import './header.scss'
-import { useState, useEffect } from "react";
 
-const Header = ({bagList, totalSum}) => {
+const Header = ({bagList, totalSum, onRenderItem}) => {
 
     const [bagListLen, setBagListLen] = useState(0)
+    const [inputSearch, setInputSearch] = useState('')
+    const [catalog, setCatalog] = useState([])
+    const [focusActive, setFocusActive] = useState(false)
+
+
+    const {getCatalogItems, error, loading} = useShopService();
+
+    useEffect(() => {
+        getCatalogItems('fittings')
+            .then(onCatalogLoaded)
+    }, [])
 
     useEffect(() => {
         setBagListLen(bagList.length)
     }, [bagList])
+    
+    const onCatalogLoaded = (catalog) => {
+        setCatalog(catalog.itemList)
+    }
+
+    const onUpdateSearch = (e) => {
+        setInputSearch(e.target.value)
+    }
+
+    const searchItems = () => {
+        if (inputSearch.length === 0) {
+            return []
+        }
+
+        return catalog.filter(item => {
+            return item.name.indexOf(inputSearch) > -1
+        }).slice(0, 2)
+    }
+
+    const onFocusActive = (bool) => {
+        if (!bool) {
+            setTimeout(() => setFocusActive(bool), 120);
+        } else {
+            setFocusActive(bool)
+        }
+    }
+
+    const searchedItems = useMemo(() => searchItems(), [inputSearch]);
+
+    const searchList = searchedItems.map(item => {
+        return (
+            <SearchItem catalog={item} onRenderItem={onRenderItem} key={item.id}/>
+        )
+    })
+
+    const errorMessage = error ? <ErrorMessage/> : null
+    const spinner = loading ? <Spinner/> : null
+    const finalContent = !searchList.length ? <div className="search__error">Товары не найдены</div> : searchList
+    const content = !(loading || error) ? finalContent : null
 
     return (
         <header className="header">
             <div className="header__block">
-                <NavLink to={'/'} className="header__block-item">
+                <NavLink to='/' className="header__block-item">
                     <img src={logo} alt="logo" />
                 </NavLink>
                 <div className="header__block-item search">
-                    <input type="text" className="search__input" placeholder="Введите запрос..."/>
+                    <input 
+                        value={inputSearch} 
+                        onChange={onUpdateSearch} 
+                        onFocus={() => {onFocusActive(true)}} 
+                        onBlur={() => {onFocusActive(false)}} 
+                        type="text" className="search__input" 
+                        placeholder="Введите запрос..."/>
+                    <div className="header__modal" style={{display: focusActive ? 'flex' : 'none'}}>
+                        {errorMessage}
+                        {spinner}
+                        {content}
+                    </div>
                 </div>
                 <div className="header__block-item">
                     <div className="contact">

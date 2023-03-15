@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
 import minus from '../../resources/img/minus.svg';
 import plus from '../../resources/img/plus.svg';
@@ -9,7 +9,7 @@ const BagItem = ({catalog, onAddToBag, onTotalSum}) => {
 
     const [count, setCount] = useState(1)
 
-    const totalSum = (price*count).toFixed(2)
+    const totalSum = useMemo(() => (price*count).toFixed(2), [price, count]);
 
     const calcPlus = () => {
         if (count > 0) {

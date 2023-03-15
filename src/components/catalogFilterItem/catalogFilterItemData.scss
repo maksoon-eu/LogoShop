@@ -11,18 +11,23 @@
         line-height: 22px;
         color: #6B7280;
 
-
         &:before {
             content: '';
             position: absolute;
             left: 0;
-            top: 3px;
+            top: 2px;
             width: 16px;
             height: 16px;
             background-color: #F3F4F6;
             border: 1px solid $gray-color;
             transition: .1s linear;
             border-radius: 3px;
+        }
+
+        &:hover {
+            &:before {
+                border-color: $blue-color;
+            }
         }
     }
 
@@ -31,7 +36,7 @@
             width: 14px;
             height: 14px;
             background: #DBEAFE;
-            border: 2px solid #3B82F6;
+            border: 2px solid $blue-color;
             border-radius: 3px;
         }
     }

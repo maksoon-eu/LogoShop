@@ -40,7 +40,6 @@ const InfoBlocks = () => {
             )
         })
 
-
         return (
             <div key={i} className="blocks__item">
                 <NavLink 

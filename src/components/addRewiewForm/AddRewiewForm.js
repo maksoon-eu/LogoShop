@@ -25,7 +25,6 @@ const AddRewiewForm = ({onAddRewiew}) => {
     }
 
     const onValueChange = (e) => {
-
         if (e.target.value.charAt(0) === ' ') {
             e.target.value.value = ''
         }

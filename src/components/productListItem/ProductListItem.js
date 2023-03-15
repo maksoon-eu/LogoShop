@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { NavLink } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
@@ -27,16 +27,18 @@ const ProductListItem = ({catalog, comicId, onRenderItem, onAddToBag, bagList}) 
         }
     }, [bagList])
 
-    const yellowRaiting = []
-    for (let i = 0; i < raiting; i++) {
-        yellowRaiting.push(<img key={i} src={raitingPlus} alt="" />)
+    const addAllRaiting = () => {
+        const allRaiting = []
+        for (let i = 0; i < raiting; i++) {
+            allRaiting.push(<img key={i} src={raitingPlus} alt="" />)
+        }
+        for (let i = 5; i < 10 - raiting; i++) {
+            allRaiting.push(<img key={i} src={raitingNone} alt="" />)
+        }
+        return allRaiting
     }
 
-    const grayRaiting = []
-    for (let i = 5; i < 10 - raiting; i++) {
-        grayRaiting.push(<img key={i} src={raitingNone} alt="" />)
-    }
-
+    const stars = useMemo(() => addAllRaiting(raiting), []);
     const newChek = newItem ? 'flex' : 'none'
     const saleChek = sale && available ? 'flex' : 'none'
     const btnDisabled = available ? false : true
@@ -66,8 +68,7 @@ const ProductListItem = ({catalog, comicId, onRenderItem, onAddToBag, bagList}) 
             </div>
             <NavLink to={`/${comicId}/${id}`} onClick={() => {onRenderItem(id)}} className="list__item-text">{name}</NavLink>
             <div className="list__item-raiting">
-                {yellowRaiting}
-                {grayRaiting}
+                {stars}
             </div>
             <div className="list__price">
                 <div className="list__item-price" style={{color: availableColor}}>{`${price} ₽`}</div>

@@ -50,7 +50,7 @@ const App = () => {
     return (
         <Router>
             <div className="app">
-                <Header bagList={bagList} totalSum={totalSum}/>
+                <Header bagList={bagList} totalSum={totalSum} onRenderItem={onRenderItem}/>
                 <Nav headerForList={headerForList}/>
                 <Routes>
                     <Route path="/" element={<MainPage bagList={bagList} onAddToBag={onAddToBag} onRenderItem={onRenderItem}/>}/>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { NavLink } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
@@ -40,7 +40,7 @@ const ProductListItemSecond = ({catalog, comicId, onRenderItem, onAddToBag, bagL
         return allRaiting
     }
 
-    const stars = addAllRaiting()
+    const stars = useMemo(() => addAllRaiting(raiting), []);
     const newChek = newItem ? 'flex' : 'none'
     const saleChek = sale && available ? 'flex' : 'none'
     const btnDisabled = available ? false : true
