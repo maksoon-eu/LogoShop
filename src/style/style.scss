@@ -1,5 +1,27 @@
 @import './variables';
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+@font-face {
+    font-display: swap;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./fonts/source-sans-pro-v21-cyrillic-regular.woff2') format('woff2');
+}
+@font-face {
+    font-display: swap;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    src: url('./fonts/source-sans-pro-v21-cyrillic-600.woff2') format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 700;
+    src: url('./fonts/source-sans-pro-v21-cyrillic-700.woff2') format('woff2');
+}
 
 * {
     font-family: 'Source Sans Pro', sans-serif;
@@ -11,7 +33,6 @@
 ul,
 li,
 dl {
-    list-style-type: none;
     margin: 0;
     padding: 0;
 }

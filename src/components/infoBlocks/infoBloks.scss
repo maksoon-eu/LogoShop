@@ -12,7 +12,7 @@
     margin: 0 5px;
     max-width: 255px;
     width: 100%;
-    min-height: 123px;
+    min-height: 135px;
     background: #F3F4F6;
     border-radius: 10px;
     position: relative;
@@ -55,6 +55,12 @@
     }
 }
 
+.blocks__list {
+    display: flex;
+    align-items: center;
+    height: 15px;
+}
+
 .blocks__link {
     display: flex;
     justify-content: flex-start;
@@ -83,7 +89,7 @@
     &-title {
         margin-bottom: 8px;
         font-weight: 600;
-        font-size: 14px;
+        font-size: 16px;
         line-height: 15px;
 
         color: #000000;
@@ -92,7 +98,7 @@
     &-text {
         margin-bottom: 10px;
         font-weight: 400;
-        font-size: 12px;
+        font-size: 14px;
         line-height: 13px;
         min-height: 52px;
         
@@ -102,7 +108,7 @@
     &-link {
         display: inline-block;
         font-weight: 600;
-        font-size: 13px;
+        font-size: 14px;
         line-height: 15px;
         transition: .1s linear;
         color: $gray-color;

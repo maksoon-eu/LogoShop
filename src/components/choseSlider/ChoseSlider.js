@@ -34,7 +34,7 @@ const ChoseSlider = ({photo}) => {
     };
 
     return (
-        <div className="slider__container chose__slider">
+        <div className="chose__slider">
             <Slider {...settings2} className="small__slider">
                 <div>
                     <div className="shose__item-small">

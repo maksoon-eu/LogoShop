@@ -60,7 +60,7 @@ const ProductListItem = ({catalog, comicId, onRenderItem, onAddToBag, bagList}) 
             <div className="list__item-new" style={{display: newChek}}>Новинка</div>
             <div className="list__item-img">
                 <LazyLoadImage 
-                    width='100%' height='100%'
+                    width='220' height='144'
                     src={photo}
                     placeholderSrc={loading}
                     alt="Item img"

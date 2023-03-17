@@ -31,7 +31,7 @@ const InfoBlocks = () => {
     const bloksList = infoBlocks.map(({name, photo, subdirectory, id}, i) => {
         const linkKey = subdirectory.map(({filterName}, i) => {
             return (
-                <div style={{display: 'flex', alignItems: 'center'}} key={i}>
+                <div className="blocks__list" key={i}>
                     <NavLink className="blocks__item-link" 
                     to={`/${id}`}>{filterName}
                     </NavLink>
@@ -46,7 +46,7 @@ const InfoBlocks = () => {
                     to={`/${id}`} 
                     end 
                     className="blocks__item-name">{name}</NavLink>
-                <img src={photo} alt="" />
+                <img rel="preload" src={photo} alt="" />
                 <div className="blocks__link">
                     {linkKey}
                 </div>
@@ -72,7 +72,7 @@ const InfoBlocks = () => {
                     </div>
                     <div className="info__item-title">Доставка</div>
                     <div className="info__item-text">Доставим ваш заказ в любой регион России, в удобное время и день. Работаем для вас, без выходных.</div>
-                    <a href="#" className="info__item-link">Подробнее</a>
+                    <NavLink to='/info' className="info__item-link">Подробнее</NavLink>
                 </div>
                 <div className="info__item">
                     <div className="info__item-img">
@@ -80,7 +80,7 @@ const InfoBlocks = () => {
                     </div>
                     <div className="info__item-title">Мы гарантируем</div>
                     <div className="info__item-text">Мы гордимся безупречной репутацией нашего магазина. Если товар не устроит вас, вы всегда сможете вернуть деньги.</div>
-                    <a href="#" className="info__item-link">Подробнее</a>
+                    <NavLink to='/info' className="info__item-link">Подробнее</NavLink>
                 </div>
                 <div className="info__item">
                     <div className="info__item-img">
@@ -88,7 +88,7 @@ const InfoBlocks = () => {
                     </div>
                     <div className="info__item-title">Как купить</div>
                     <div className="info__item-text">Мы с радостью подскажем как сделать покупки в интернете простыми и удобными.</div>
-                    <a href="#" className="info__item-link">Подробнее</a>
+                    <NavLink to='/info' className="info__item-link">Подробнее</NavLink>
                 </div>
                 <div className="info__item">
                     <div className="info__item-img">
@@ -96,7 +96,7 @@ const InfoBlocks = () => {
                     </div>
                     <div className="info__item-title">Всегда на связи</div>
                     <div className="info__item-text">Связаться с нами можно любым удобным для вас способом: e-mail, телефон, социальные сети и мессенджеры.</div>
-                    <a href="#" className="info__item-link">Подробнее</a>
+                    <NavLink to='/info' className="info__item-link">Подробнее</NavLink>
                 </div>
             </div>
         </>
