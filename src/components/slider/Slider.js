@@ -56,7 +56,7 @@ const SimpleSlider = () => {
                 </div>
                 <div>
                 <div className="slider__item">
-                        <img src={slider1} alt="" />
+                        <img rel="preload" src={slider1} alt="" />
                         <div className="slider__block">
                             <div className="slider__text">
                                 <div className="slider__item-text">Скидки на инструмент</div>

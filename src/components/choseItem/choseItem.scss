@@ -116,30 +116,6 @@
         margin: 20px 0;
     }
 
-    .ride {
-        display: flex;
-        font-weight: 600;
-        font-size: 13px;
-        line-height: 22px;
-
-        &:not(:last-of-type) {
-            margin-bottom: 10px;
-        }
-
-        img {
-            margin-right: 12px;
-        }
-
-        a {
-            transition: .1s linear;
-            color: #3B82F6;
-
-            &:hover {
-                text-decoration-line: underline;
-            }
-        }
-    }
-
     &-descr {
         max-width: 284px;
         width: 100%;
@@ -147,6 +123,30 @@
         font-size: 13px;
         line-height: 22px;
         color: #6B7280;
+    }
+}
+
+.ride {
+    display: flex;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+
+    &:not(:last-of-type) {
+        margin-bottom: 10px;
+    }
+
+    img {
+        margin-right: 12px;
+    }
+
+    a {
+        transition: .1s linear;
+        color: #3B82F6;
+
+        &:hover {
+            text-decoration-line: underline;
+        }
     }
 }
 

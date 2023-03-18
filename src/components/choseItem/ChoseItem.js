@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import moment from 'moment'
 
 
@@ -18,6 +18,8 @@ const ChozeItem = ({catalog, onAddToBag, bagList}) => {
     const [toBag, setToBag] = useState(false)
     const {comicId} = useParams()
 
+    const {photo, name, price, raiting, available, sale, saleCount, newItem, id} = catalog
+
     useEffect(() => {
         if (bagList.length > 0) {
             if (bagList.some(item => item.id === catalog.id)) {
@@ -33,8 +35,6 @@ const ChozeItem = ({catalog, onAddToBag, bagList}) => {
     const [rewiew, setRewiew] = useState([
         {name: 'Игорь', text: 'Тут написан отзыв', adv: 'Достоинства', disadv: 'Недостатки', newRaiting: 3}
     ])
-
-    const {photo, name, price, raiting, available, sale, saleCount, newItem, id} = catalog
 
     const onAddRewiew = (name, text, adv, disadv, newRaiting) => {
         const newItem = {
@@ -122,7 +122,7 @@ const ChozeItem = ({catalog, onAddToBag, bagList}) => {
                                 <img src={home} alt="" />
                             </div>
                             <div className="ride__text">
-                                <a href="#">Самовывоз</a> сегодня через 2 часа
+                                <NavLink to="/order">Самовывоз</NavLink> сегодня через 2 часа
                             </div>
                         </div>
                         <div className="ride">
@@ -130,7 +130,7 @@ const ChozeItem = ({catalog, onAddToBag, bagList}) => {
                                 <img src={ride} alt="" />
                             </div>
                             <div className="ride__text">
-                                <a href="#">Доставка</a> завтра до 18:00
+                                <NavLink to="/order">Доставка</NavLink> завтра до 18:00
                             </div>
                         </div>
                     </div>

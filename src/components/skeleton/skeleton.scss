@@ -1,0 +1,33 @@
+.skeleton {
+    margin: 0 5px;
+    max-width: 230px;
+    width: 100%;
+    height: 135px;
+    margin-bottom: 20px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__circle {
+        width: 40px;
+        height: 40px;
+        background-color: #C4C4C4;
+        border-radius: 100%;
+    }
+    &__mini {
+        max-width: 180px;
+        width: 100%;
+        height: 16px;
+        background-color: #C4C4C4;
+        border-radius: 5px;
+    }
+    &__block {
+        height: 25px;
+        width: 100%;
+        background-color: #C4C4C4;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+}

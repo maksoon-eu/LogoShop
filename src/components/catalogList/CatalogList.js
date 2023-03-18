@@ -152,7 +152,7 @@ const CatalogList = ({onRenderItem, onAddToBag, bagList}) => {
 
     const catalogTitle = activeName.map(({activeTab}, i) => {
         return (
-            <h1 key={i}>{activeTab}</h1>
+            <h1 className="title" key={i}>{activeTab}</h1>
         )
     })
 

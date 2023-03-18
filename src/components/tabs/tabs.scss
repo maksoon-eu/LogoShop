@@ -1,0 +1,32 @@
+.tabs {
+
+    &__title {
+        max-width: 315px;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+    }
+}
+
+.tab {
+    cursor: pointer;
+    display: flex;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+
+    &__text {
+        margin-left: 12px;
+        transition: .1s linear;
+
+        &:hover {
+            text-decoration-line: underline;
+        }
+    }
+
+    &__img {
+        height: 20px;
+    }
+}

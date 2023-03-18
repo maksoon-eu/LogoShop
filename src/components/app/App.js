@@ -13,6 +13,7 @@ import '../../style/style.scss'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useMemo, useState } from 'react';
 import { useCookies } from 'react-cookie';
+import OrderPage from '../pages/OrderPage';
 
 
 const App = () => {
@@ -59,6 +60,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<MainPage bagList={cookies.bagList} onAddToBag={onAddToBag} onRenderItem={onRenderItem}/>}/>
                     <Route path="/info" element={<InfoPage/>}/>
+                    <Route path="/order" element={<OrderPage/>}/>
                     <Route path="/cart" element={<BagPage onTotalSum={onTotalSum} onAddToBag={onAddToBag} bagList={cookies.bagList}/>}/>
                     <Route path="/:comicId" element={<ItemsPage name={header} bagList={cookies.bagList} onAddToBag={onAddToBag} onRenderItem={onRenderItem}/>}/>
                     <Route path="/:comicId/:comicName" element={<ElemPage activeId={activeId} bagList={cookies.bagList} onAddToBag={onAddToBag}/>}/>

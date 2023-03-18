@@ -1,7 +1,47 @@
 @import '../../style/variables.scss';
 
+.bag__ready {
+    display: flex;
+    justify-content: space-between;
+    max-width: 257px;
+    width: 100%;
+    margin-left: auto;
+}
+
+.bag__sum {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    color: #000000;
+    margin-bottom: 15px;
+    padding-top: 6px;
+    text-align: center;
+}
+
+.bag__final {
+    height: 40px;
+    position: relative;
+    padding-left: 16px;
+    padding-top: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 15px;
+    color: #000000;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 1px;
+        top: 0;
+        bottom: 0;
+        background-color: #E5E7EB;
+    }
+}
+
 .bagItem {
     width: 100%;
+    min-height: 115px;
     background: #FFFFFF;
     border: 2px solid #E5E7EB;
     border-radius: 10px;

@@ -6,70 +6,70 @@
             "photo": "images/info1.svg",
             "subdirectory": [
                 {"filterName": "PPR", "filterNameProgram": "prp"},
-                {"filterName": "запорная арматура", "filterNameProgram": "shutOffPipe"},
-                {"filterName": "трубопроводная арматура", "filterNameProgram": "pipeFittings"}
+                {"filterName": "Запорная арматура", "filterNameProgram": "shutOffPipe"},
+                {"filterName": "Трубопроводная арматура", "filterNameProgram": "pipeFittings"}
             ]
         },
         {
             "name": "Вентиляция", "id": "ventilation", "photo": "images/info2.svg",
             "subdirectory": [
                 {"filterName": "Гибкие воздуховоды", "filterNameProgram": "prp1"},
-                {"filterName": "дренаж", "filterNameProgram": "shutOffPipe"},
-                {"filterName": "зимние комплекты", "filterNameProgram": "pipeFittings"},
-                {"filterName": "сплит системы", "filterNameProgram": "pipeFittings"}
+                {"filterName": "Дренаж", "filterNameProgram": "shutOffPipe"},
+                {"filterName": "Зимние комплекты", "filterNameProgram": "pipeFittings"},
+                {"filterName": "Сплит системы", "filterNameProgram": "pipeFittings"}
             ]
         },
         {
             "name": "Изоляция", "id": "isolation", "photo": "images/info3.svg",
             "subdirectory": [
                 {"filterName": "Защитные системы", "filterNameProgram": "prp"},
-                {"filterName": "звукоизоляция", "filterNameProgram": "shutOffPipe"},
-                {"filterName": "термочехлы", "filterNameProgram": "pipeFittings"},
-                {"filterName": "техническа теплоизоляция", "filterNameProgram": "pipeFittings"}
+                {"filterName": "Звукоизоляция", "filterNameProgram": "shutOffPipe"},
+                {"filterName": "Термочехлы", "filterNameProgram": "pipeFittings"},
+                {"filterName": "Техническа теплоизоляция", "filterNameProgram": "pipeFittings"}
             ]
         },
         {
             "name": "Инструменты", "id": "tools", "photo": "images/info4.svg",
             "subdirectory": [
                 {"filterName": "Аксессуары", "filterNameProgram": "prp"},
-                {"filterName": "горелки", "filterNameProgram": "shutOffPipe"},
-                {"filterName": "отрезной инструмент", "filterNameProgram": "pipeFittings"},
-                {"filterName": "расходные материалы", "filterNameProgram": "pipeFittings"}
+                {"filterName": "Горелки", "filterNameProgram": "shutOffPipe"},
+                {"filterName": "Отрезной инструмент", "filterNameProgram": "pipeFittings"},
+                {"filterName": "Расходные материалы", "filterNameProgram": "pipeFittings"}
             ]
         },
         {
             "name": "Монтаж", "id": "mounting", "photo": "images/info5.svg",
             "subdirectory": [
                 {"filterName": "Ленты", "filterNameProgram": "prp"},
-                {"filterName": "определение проточек", "filterNameProgram": "shutOffPipe"},
-                {"filterName": "пены клеи и герметики", "filterNameProgram": "pipeFittings"},
-                {"filterName": "припои МАРР Газ", "filterNameProgram": "pipeFittings"}
+                {"filterName": "Определение проточек", "filterNameProgram": "shutOffPipe"},
+                {"filterName": "Пены клеи и герметики", "filterNameProgram": "pipeFittings"},
+                {"filterName": "Припои МАРР Газ", "filterNameProgram": "pipeFittings"}
             ]
         },
         {
             "name": "Огнезащита", "id": "fireProtection", "photo": "images/info6.svg",
             "subdirectory": [
                 {"filterName": "Огнезащита воздуховодов", "filterNameProgram": "prp"},
-                {"filterName": "огнезащитные покрытия", "filterNameProgram": "shutOffPipe"},
-                {"filterName": "противопожарные муфты", "filterNameProgram": "pipeFittings"}
+                {"filterName": "Огнезащитные покрытия", "filterNameProgram": "shutOffPipe"},
+                {"filterName": "Противопожарные муфты", "filterNameProgram": "pipeFittings"}
             ]
         },
         {
             "name": "Трубы и фиттинг", "id": "pipesAndFittings", "photo": "images/info7.svg",
             "subdirectory": [
                 {"filterName": "Медь", "filterNameProgram": "prp"},
-                {"filterName": "нержавейка", "filterNameProgram": "shutOffPipe"},
+                {"filterName": "Нержавейка", "filterNameProgram": "shutOffPipe"},
                 {"filterName": "ПВХ", "filterNameProgram": "pipeFittings"},
-                {"filterName": "полиэтелен", "filterNameProgram": "pipeFittings"},
-                {"filterName": "сталь", "filterNameProgram": "pipeFittings"}
+                {"filterName": "Полиэтелен", "filterNameProgram": "pipeFittings"},
+                {"filterName": "Сталь", "filterNameProgram": "pipeFittings"}
             ]
         },
         {
             "name": "Электрика", "id": "electrics", "photo": "images/info8.svg",
             "subdirectory": [
                 {"filterName": "Гофра", "filterNameProgram": "prp"},
-                {"filterName": "кабельная продукция", "filterNameProgram": "shutOffPipe"},
-                {"filterName": "системы прокладки кабеля", "filterNameProgram": "pipeFittings"}
+                {"filterName": "Кабельная продукция", "filterNameProgram": "shutOffPipe"},
+                {"filterName": "Системы прокладки кабеля", "filterNameProgram": "pipeFittings"}
             ]
         }
     ],

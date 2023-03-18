@@ -37,7 +37,7 @@ const ProductList = ({title, comicId, onRenderItem, onAddToBag, bagList}) => {
     return (
         <>
             <div className="list__header">
-                <h2 className="list__title">{title}</h2>
+                <h1 className="title">{title}</h1>
                 <NavLink to={`/${comicId}`} className="nav__block-item nav__block-item--main">
                     <img src={catalogImg} alt="catalog" />
                     Все товары

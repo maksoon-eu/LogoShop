@@ -3,7 +3,7 @@ import { useState } from "react";
 import './catalogFilterItemData.scss'
 
 const CatalogFilterItemData = ({item, filteredList}) => {
-    const [styleFilter, setStyleFilter] = useState('')
+    const [styleFilter, setStyleFilter] = useState(false)
 
     const onFilterActive = () => {
         setStyleFilter(styleFilter => !styleFilter)

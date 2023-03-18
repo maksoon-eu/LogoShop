@@ -14,7 +14,7 @@ const AddRewiewForm = ({onAddRewiew}) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        if (addRewiew[0].length >= 3 && addRewiew[1].length >= 3 && addRewiew[2].length >= 3 && addRewiew[3].length >= 3) {
+        if (!addRewiew.some(item => item.length < 3)) {
             onAddRewiew(addRewiew[0], addRewiew[1], addRewiew[2], addRewiew[3], addRaiting)
             setAddRewiew(['', '', '', ''])
             setAddRaiting(0)

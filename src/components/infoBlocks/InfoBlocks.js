@@ -10,7 +10,7 @@ import useShopService from "../../services/ShopService";
 import { NavLink } from "react-router-dom";
 
 import ErrorMessage from '../errorMessage/ErorrMessage';
-import Spinner from '../spiner/Spiner';
+import Skeleton from '../skeleton/Skeleton';
 
 
 const InfoBlocks = () => {
@@ -26,6 +26,17 @@ const InfoBlocks = () => {
     
     const onCatalogLoaded = (catalog) => {
         setInfoBlocks(catalog)
+    }
+
+    const skeleton = () => {
+        return (
+            <>
+                <Skeleton/>
+                <Skeleton/>
+                <Skeleton/>
+                <Skeleton/>
+            </>
+        )
     }
 
     const bloksList = infoBlocks.map(({name, photo, subdirectory, id}, i) => {
@@ -46,7 +57,7 @@ const InfoBlocks = () => {
                     to={`/${id}`} 
                     end 
                     className="blocks__item-name">{name}</NavLink>
-                <img rel="preload" src={photo} alt="" />
+                <img rel="preload" src={photo} alt="" as="images"/>
                 <div className="blocks__link">
                     {linkKey}
                 </div>
@@ -55,7 +66,7 @@ const InfoBlocks = () => {
     })
 
     const errorMessage = error ? <ErrorMessage/> : null
-    const spinner = loading ? <Spinner/> : null
+    const spinner = loading ? skeleton() : null
     const content =  !(loading || error) ? bloksList : null
 
     return (
@@ -68,7 +79,7 @@ const InfoBlocks = () => {
             <div className="info">
                 <div className="info__item">
                     <div className="info__item-img">
-                        <img src={ride1} alt="" />
+                        <img rel="preload" src={ride1} alt="" />
                     </div>
                     <div className="info__item-title">Доставка</div>
                     <div className="info__item-text">Доставим ваш заказ в любой регион России, в удобное время и день. Работаем для вас, без выходных.</div>
@@ -76,7 +87,7 @@ const InfoBlocks = () => {
                 </div>
                 <div className="info__item">
                     <div className="info__item-img">
-                        <img src={ride2} alt="" />
+                        <img rel="preload" src={ride2} alt="" />
                     </div>
                     <div className="info__item-title">Мы гарантируем</div>
                     <div className="info__item-text">Мы гордимся безупречной репутацией нашего магазина. Если товар не устроит вас, вы всегда сможете вернуть деньги.</div>
@@ -84,7 +95,7 @@ const InfoBlocks = () => {
                 </div>
                 <div className="info__item">
                     <div className="info__item-img">
-                        <img src={ride3} alt="" />
+                        <img rel="preload" src={ride3} alt="" />
                     </div>
                     <div className="info__item-title">Как купить</div>
                     <div className="info__item-text">Мы с радостью подскажем как сделать покупки в интернете простыми и удобными.</div>
@@ -92,7 +103,7 @@ const InfoBlocks = () => {
                 </div>
                 <div className="info__item">
                     <div className="info__item-img">
-                        <img src={ride4} alt="" />
+                        <img rel="preload" src={ride4} alt="" />
                     </div>
                     <div className="info__item-title">Всегда на связи</div>
                     <div className="info__item-text">Связаться с нами можно любым удобным для вас способом: e-mail, телефон, социальные сети и мессенджеры.</div>

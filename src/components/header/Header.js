@@ -21,7 +21,7 @@ const Header = ({bagList, totalSum, onRenderItem}) => {
 
 
     const {getCatalogItems, error, loading} = useShopService();
-
+    
     useEffect(() => {
         getCatalogItems('fittings')
             .then(onCatalogLoaded)
@@ -74,7 +74,7 @@ const Header = ({bagList, totalSum, onRenderItem}) => {
         <header className="header">
             <div className="header__block">
                 <NavLink to='/' className="header__block-item">
-                    <img rel="preload" src={logo} alt="logo" />
+                    <img rel="preload" src={logo} alt="logo" as="image" />
                 </NavLink>
                 <div className="header__block-item search">
                     <input 
