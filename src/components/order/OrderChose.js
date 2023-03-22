@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const OrderChose = ({item, onShowPassword}) => {
+const OrderChose = ({item}) => {
     const [styleFilter, setStyleFilter] = useState(false)
 
     const onFilterActive = () => {
@@ -8,7 +8,7 @@ const OrderChose = ({item, onShowPassword}) => {
     }
 
     return (
-        <div onClick={() => {onFilterActive(); onShowPassword === undefined ? console.log() : onShowPassword()}} className={`filter__list-chek ${styleFilter ? 'filter__list-chek--active' : ''}`}>{item}</div>
+        <div onClick={onFilterActive} className={`filter__list-chek ${styleFilter ? 'filter__list-chek--active' : ''}`}>{item}</div>
     )
 };
 

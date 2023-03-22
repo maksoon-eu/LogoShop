@@ -1,4 +1,4 @@
-import cookie from 'cookie'
+import cookie from 'cookie';
 import { useMemo } from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -18,7 +18,7 @@ const Bag = ({bagList, onAddToBag, onTotalSum}) => {
     return (
         <div>
             <h1 className="title">Корзина</h1>
-            {bagRenderList}
+            {!bagRenderList.length ? <h2 className="card__length">Корзина пуста</h2> : bagRenderList}
             <div className="bag__ready" style={{display: bagRenderList.length ? 'flex' : 'none'}}>
                 <div className="bag__final">Итого</div>
                 <div>

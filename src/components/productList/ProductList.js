@@ -10,7 +10,7 @@ import catalogImg from '../../resources/img/catalog.svg'
 import { NavLink } from 'react-router-dom';
 
 
-const ProductList = ({title, comicId, onRenderItem, onAddToBag, bagList}) => {
+const ProductList = ({title, comicId, onRenderItem, onAddToBag, bagList, onTotalSum}) => {
     const [catalog, setCatalog] = useState([])
 
     const {getCatalogItems, error, loading} = useShopService();
@@ -26,7 +26,7 @@ const ProductList = ({title, comicId, onRenderItem, onAddToBag, bagList}) => {
 
     const catalogList = catalog.map(item => {
         return (
-            <ProductListItem bagList={bagList} onAddToBag={onAddToBag} onRenderItem={onRenderItem} catalog={item} comicId={comicId} key={item.id}/>
+            <ProductListItem onTotalSum={onTotalSum} bagList={bagList} onAddToBag={onAddToBag} onRenderItem={onRenderItem} catalog={item} comicId={comicId} key={item.id}/>
         )
     })
 

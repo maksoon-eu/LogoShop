@@ -5,17 +5,17 @@ import EmailBanner from '../emailBanner/EmailBanner';
 import RideBanner from '../rideBanner/RideBanner';
 import Manufacturer from '../manufacturer/Manufacturer';
 
-const MainPage = ({onRenderItem, onAddToBag, bagList}) => {
+const MainPage = ({onRenderItem, onAddToBag, bagList, onTotalSum}) => {
     return (
         <>
             <Slider/>
             <InfoBlocks/>
-            <ProductList onAddToBag={onAddToBag} bagList={bagList} onRenderItem={onRenderItem} title={'Арматура'} comicId={'fittings'}/>
+            <ProductList onTotalSum={onTotalSum} onAddToBag={onAddToBag} bagList={bagList} onRenderItem={onRenderItem} title={'Арматура'} comicId={'fittings'}/>
             <EmailBanner/>
-            <ProductList onAddToBag={onAddToBag} bagList={bagList} onRenderItem={onRenderItem} title={'Вентиляция и кондиционирование'} comicId={'ventilation'}/>
-            <ProductList onAddToBag={onAddToBag} bagList={bagList} onRenderItem={onRenderItem} title={'Изоляционные материалы'} comicId={'isolation'}/>
+            <ProductList onTotalSum={onTotalSum} onAddToBag={onAddToBag} bagList={bagList} onRenderItem={onRenderItem} title={'Вентиляция и кондиционирование'} comicId={'ventilation'}/>
+            <ProductList onTotalSum={onTotalSum} onAddToBag={onAddToBag} bagList={bagList} onRenderItem={onRenderItem} title={'Изоляционные материалы'} comicId={'isolation'}/>
             <Manufacturer/>
-            <ProductList onAddToBag={onAddToBag} bagList={bagList} onRenderItem={onRenderItem} title={'Вам может понадобиться'} comicId={'fittings'}/>
+            <ProductList onTotalSum={onTotalSum} onAddToBag={onAddToBag} bagList={bagList} onRenderItem={onRenderItem} title={'Вам может понадобиться'} comicId={'fittings'}/>
             <RideBanner/>
         </>
     );

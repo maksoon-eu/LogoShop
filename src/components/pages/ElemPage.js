@@ -5,7 +5,7 @@ import ChozeItem from "../choseItem/ChoseItem";
 import Spinner from "../spiner/Spiner";
 import ErrorMessage from "../errorMessage/ErorrMessage";
 
-const ElemPage = ({onAddToBag, bagList}) => {
+const ElemPage = ({onAddToBag, bagList, onTotalSum}) => {
 
     const {getCatalogElem, error, loading} = useShopService();
 
@@ -23,7 +23,7 @@ const ElemPage = ({onAddToBag, bagList}) => {
 
     const choseElem = catalog.map(item => {
         return (
-            <ChozeItem bagList={bagList} onAddToBag={onAddToBag} catalog={item} key={item.id}/>
+            <ChozeItem onTotalSum={onTotalSum} bagList={bagList} onAddToBag={onAddToBag} catalog={item} key={item.id}/>
         )
     })
     

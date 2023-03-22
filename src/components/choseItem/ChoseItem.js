@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { NavLink, useParams } from "react-router-dom";
+import { useCookies } from 'react-cookie';
 import moment from 'moment'
-
 
 import ChoseSlider from '../choseSlider/ChoseSlider';
 import AddRewiewForm from '../addRewiewForm/AddRewiewForm';
@@ -10,15 +10,20 @@ import raitingPlus from '../../resources/img/raitingPlus.svg';
 import raitingNone from '../../resources/img/raitingNone.svg';
 import home from '../../resources/img/home.svg';
 import ride from '../../resources/img/ride.svg';
+import minus from '../../resources/img/minus.svg';
+import plus from '../../resources/img/plus.svg';
 
 import './choseItem.scss'
 import { useEffect } from 'react';
 
-const ChozeItem = ({catalog, onAddToBag, bagList}) => {
+const ChozeItem = ({catalog, onAddToBag, bagList, onTotalSum}) => {
     const [toBag, setToBag] = useState(false)
     const {comicId} = useParams()
 
     const {photo, name, price, raiting, available, sale, saleCount, newItem, id} = catalog
+
+    const [cookies, setCookie] = useCookies([id]);
+    const activeCount = useMemo(() => +(cookies[id] === undefined ? 1 : cookies[id]), [cookies[id]])
 
     useEffect(() => {
         if (bagList.length > 0) {
@@ -57,6 +62,24 @@ const ChozeItem = ({catalog, onAddToBag, bagList}) => {
             allRaiting.push(<img key={i} src={raitingNone} alt="" />)
         }
         return allRaiting
+    }
+
+    const calcPlus = () => {
+        if (activeCount > 0) {
+            if (toBag) {
+                onTotalSum(price)
+            }
+            setCookie(id, activeCount + 1)
+        }
+    }
+
+    const calcMinus = () => {
+        if (activeCount > 1) {
+            if (toBag) {
+                onTotalSum(-price)
+            }
+            setCookie(id, activeCount - 1)
+        }
     }
 
     const rewiewList = rewiew.map((item, i) => {
@@ -113,7 +136,16 @@ const ChozeItem = ({catalog, onAddToBag, bagList}) => {
                         {stars}
                     </div>
                     <div className="list__btn items__btn">
-                        <button onClick={() => {onAddToBag(catalog, price)}} disabled={btnDisabled} style={{backgroundColor: bgBtnColor}} className='list__btn-item item__btn-item'><span>В корзину</span></button>
+                        <div className="calc">
+                            <button className="calc__btn" onClick={calcMinus}>
+                                <img src={minus} alt="" />
+                            </button>
+                            {activeCount}
+                            <button className="calc__btn" onClick={calcPlus}>
+                                <img src={plus} alt="" />
+                            </button>
+                        </div>
+                        <button onClick={() => {onAddToBag(catalog, price*activeCount)}} disabled={btnDisabled} style={{backgroundColor: bgBtnColor}} className='list__btn-item item__btn-item'><span>В корзину</span></button>
                     </div>
                     <div className="line"></div>
                     <div className="item__right-ride">

@@ -11,7 +11,7 @@ import CatalogSort from "../catalogSort/CatalogSort";
 
 import './catalogList.scss'
 
-const CatalogList = ({onRenderItem, onAddToBag, bagList}) => {
+const CatalogList = ({onRenderItem, onAddToBag, bagList, onTotalSum}) => {
     const [catalog, setCatalog] = useState([])
     const [cost, setCost] = useState(0)
     const [activeName, setActiveName] = useState([])
@@ -116,13 +116,13 @@ const CatalogList = ({onRenderItem, onAddToBag, bagList}) => {
 
     const catalogFilterFirstType = sortingItems().map(item => {
         return (
-            <ProductListItem bagList={bagList} onAddToBag={onAddToBag} onRenderItem={onRenderItem} comicId={comicId} catalog={item} key={item.id}/>
+            <ProductListItem onTotalSum={onTotalSum} bagList={bagList} onAddToBag={onAddToBag} onRenderItem={onRenderItem} comicId={comicId} catalog={item} key={item.id}/>
         )
     })
 
     const catalogFilterSecondType = sortingItems().map(item => {
         return (
-            <ProductListItemSecond bagList={bagList} onAddToBag={onAddToBag} onRenderItem={onRenderItem} comicId={comicId} catalog={item} key={item.id}/>
+            <ProductListItemSecond onTotalSum={onTotalSum} bagList={bagList} onAddToBag={onAddToBag} onRenderItem={onRenderItem} comicId={comicId} catalog={item} key={item.id}/>
         )
     })
 

@@ -22,7 +22,7 @@ const App = () => {
 
     const [header, setHeader] = useState()
     const [activeId, setActiveId] = useState()
-    const value = useMemo(() => +(cookies.activeSum === undefined ? 0 : cookies.activeSum), [cookies.activeSum])
+    const value = useMemo(() => +(cookies.activeSum === undefined ? 0 : cookies.activeSum), [cookies.activeSum]).toFixed(2)
     
     const headerForList = (name) => {
         setHeader(name)
@@ -33,22 +33,21 @@ const App = () => {
     }
 
     const onTotalSum = (newSum) => {
-        setCookie('activeSum', value + +(newSum))
+        setCookie('activeSum', +value + +newSum)
     }
 
     const onAddToBag = (catalog, newSum) => {
-        
         if (cookies.bagList.length > 0) {
             if (!cookies.bagList.some(item => item.id === catalog.id)) {
                 setCookie('bagList', [...cookies.bagList, ...[catalog]]);
-                setCookie('activeSum', value + +(newSum));
+                setCookie('activeSum', +value + +newSum)
             } else {
                 setCookie('bagList', cookies.bagList.filter(item => item.id !== catalog.id));
-                setCookie('activeSum', value - +(newSum));
+                setCookie('activeSum', +value - +newSum)
             }
         } else {
             setCookie('bagList', [...cookies.bagList, ...[catalog]]);
-            setCookie('activeSum', value + +(newSum));
+            setCookie('activeSum', +value + +newSum)
         }
     }
 
@@ -58,12 +57,12 @@ const App = () => {
                 <Header bagList={cookies.bagList} totalSum={value} onRenderItem={onRenderItem}/>
                 <Nav headerForList={headerForList}/>
                 <Routes>
-                    <Route path="/" element={<MainPage bagList={cookies.bagList} onAddToBag={onAddToBag} onRenderItem={onRenderItem}/>}/>
+                    <Route path="/" element={<MainPage onTotalSum={onTotalSum} bagList={cookies.bagList} onAddToBag={onAddToBag} onRenderItem={onRenderItem}/>}/>
                     <Route path="/info" element={<InfoPage/>}/>
-                    <Route path="/order" element={<OrderPage/>}/>
+                    <Route path="/order" element={<OrderPage bagList={cookies.bagList} totalSum={value}/>}/>
                     <Route path="/cart" element={<BagPage onTotalSum={onTotalSum} onAddToBag={onAddToBag} bagList={cookies.bagList}/>}/>
-                    <Route path="/:comicId" element={<ItemsPage name={header} bagList={cookies.bagList} onAddToBag={onAddToBag} onRenderItem={onRenderItem}/>}/>
-                    <Route path="/:comicId/:comicName" element={<ElemPage activeId={activeId} bagList={cookies.bagList} onAddToBag={onAddToBag}/>}/>
+                    <Route path="/:comicId" element={<ItemsPage onTotalSum={onTotalSum} name={header} bagList={cookies.bagList} onAddToBag={onAddToBag} onRenderItem={onRenderItem}/>}/>
+                    <Route path="/:comicId/:comicName" element={<ElemPage onTotalSum={onTotalSum} activeId={activeId} bagList={cookies.bagList} onAddToBag={onAddToBag}/>}/>
                     <Route path="*" element={<ErrorPage/>}/>
                 </Routes>
                 <Footer/>

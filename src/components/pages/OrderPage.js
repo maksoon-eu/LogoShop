@@ -1,8 +1,8 @@
 import Order from "../order/Order";
 
-const OrderPage = () => {
+const OrderPage = ({totalSum, bagList}) => {
     return (
-        <Order/>
+        <Order bagList={bagList} totalSum={totalSum}/>
     );
 };
 

@@ -45,14 +45,12 @@ const Tabs = () => {
                         <div className="order__flex">
                             <div className="order__title">1. Ближайший магазин</div>
                             <div className="order__subtitle order__subtitle--bold">Адрес: адрес</div>
-                            <div className="tab" 
-                                 onClick={() => {handleClick('tab2')}}
-                                 style={{color: activeTab === 'tab2' ? '#000' : '#3B82F6'}}>
+                            <div className="tab" style={{color: '#3B82F6'}}>
                                 <div className="tab__img">
                                     <img src={location} alt="" />
                                 </div>
                                 <div className="tab__text">
-                                    Доставка домой
+                                    Выбрать на карте
                                 </div>
                             </div>
                         </div>

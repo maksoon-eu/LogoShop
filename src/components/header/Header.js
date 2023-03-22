@@ -135,7 +135,7 @@ const Header = ({bagList, totalSum, onRenderItem}) => {
                                 <span className="contact__text">Товаров </span> 
                                 <span className="contact__info">{bagListLen}</span>
                             </div>
-                            <span className="contact__info">{`${totalSum.toFixed(2)} ₽`}</span>
+                            <span className="contact__info">{`${totalSum} ₽`}</span>
                         </div>
                     </NavLink>
                 </div>

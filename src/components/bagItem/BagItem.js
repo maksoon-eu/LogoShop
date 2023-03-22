@@ -2,35 +2,35 @@ import { useMemo } from 'react';
 import { useCookies } from 'react-cookie';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-
 import loading from '../../resources/img/loading.svg';
 import minus from '../../resources/img/minus.svg';
 import plus from '../../resources/img/plus.svg';
 import './bagItem.scss'
 
 const BagItem = ({catalog, onAddToBag, onTotalSum}) => {
-    const [cookies, setCookie] = useCookies(['count']);
     const {photo, name, price, id} = catalog
+    const [cookies, setCookie, removeCookie] = useCookies([id]);
 
-    const totalSum = useMemo(() => (price*cookies.count).toFixed(2), [price, cookies.count]);
-    const activeCount = useMemo(() => +(cookies.count === undefined ? 1 : cookies.count), [cookies.count])
+    const activeCount = useMemo(() => +(cookies[id] === undefined ? 1 : cookies[id]), [cookies[id]])
+
+    const totalSum = useMemo(() => (price * activeCount).toFixed(2), [price, cookies[id]]);
 
     const calcPlus = () => {
         if (activeCount > 0) {
             onTotalSum(price)
-            setCookie('count', activeCount + 1)
+            setCookie(id, activeCount + 1)
         }
     }
 
     const calcMinus = () => {
         if (activeCount > 1) {
             onTotalSum(-price)
-            setCookie('count', activeCount - 1)
+            setCookie(id, activeCount - 1)
         }
     }
 
     const removeCount = () => {
-        setCookie('count', 1)
+        removeCookie(id)
     }
     
     return (

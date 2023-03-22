@@ -3,6 +3,7 @@
 .order {
     max-width: 825px;
     width: 100%;
+    position: relative;
 
     &__block {
         background: #FFFFFF;
@@ -10,6 +11,16 @@
         border-radius: 10px;
         padding: 20px;
         margin-top: 25px;
+
+        &-img {
+            max-width: 180px;
+            width: 100%;
+            height: 25px;
+
+            img {
+                width: 100%;
+            }
+        }
     }
 
     &__column {
@@ -78,6 +89,14 @@
         &--none {
             align-items: flex-start;
         }
+
+        &--pay {
+            margin-top: 22px;
+        }
+
+        &-right {
+            display: flex;
+        }
     }
 
     &__title {
@@ -116,4 +135,121 @@
             color: #000000;
         }
     }
+
+    .inner__total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-text {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 15px;
+            color: #000000;
+        }
+
+        &-cost {
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 25px;
+            color: #000000;
+        }
+    }
+}
+
+.chekChekbox {
+    display: flex;
+    white-space: pre;
+    margin-bottom: 15px;
+}
+
+.orderChose__link {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+    color: $blue-color;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.main__pole {
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+    color: #6B7280;
+}
+
+.summaryInformation {
+    position: absolute;
+    right: -270px;
+    top: 10px;
+    width: 255px;
+    height: 100%;
+
+    &__inner {
+        position: fixed;
+        border-radius: 10px;
+        background: #F9FAFB;
+        width: 255px;
+        padding: 18px;
+    }
+
+    .inner__location {
+        display: flex;
+        align-items: center;
+
+        &-img {
+            height: 20px;
+        }
+
+        &-text {
+            margin-left: 9px;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 15px;
+            color: #141821;
+        }
+    }
+
+    .inner__title {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 25px;
+        color: #000000;
+        margin: 20px 0;
+    }
+
+    .inner__list {
+        display: flex;
+        align-items: center;
+
+        &-name {
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 15px;
+            color: #6B7280;
+        }
+
+        &-price {
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 15px;
+            color: #000000;
+            width: 65px;
+        }
+    }
+
+    .inner__line {
+        width: 100%;
+        background-color: #E5E7EB;
+        height: 1px;
+        margin: 20px 0;
+    }
+}
+
+.showPassword {
+    margin-top: 40px;
 }
