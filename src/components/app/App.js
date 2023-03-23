@@ -37,17 +37,18 @@ const App = () => {
     }
 
     const onAddToBag = (catalog, newSum) => {
+        const newNumFunc = +(newSum.toFixed(2))
         if (cookies.bagList.length > 0) {
             if (!cookies.bagList.some(item => item.id === catalog.id)) {
                 setCookie('bagList', [...cookies.bagList, ...[catalog]]);
-                setCookie('activeSum', +value + +newSum)
+                setCookie('activeSum', +value + newNumFunc)
             } else {
                 setCookie('bagList', cookies.bagList.filter(item => item.id !== catalog.id));
-                setCookie('activeSum', +value - +newSum)
+                setCookie('activeSum', +value - newNumFunc)
             }
         } else {
             setCookie('bagList', [...cookies.bagList, ...[catalog]]);
-            setCookie('activeSum', +value + +newSum)
+            setCookie('activeSum', +value + newNumFunc)
         }
     }
 

@@ -18,9 +18,10 @@ const ProductListItemSecond = ({catalog, comicId, onRenderItem, onAddToBag, bagL
 
     const {photo, name, price, raiting, available, sale, saleCount, newItem, id} = catalog
 
-    const [cookies, setCookie] = useCookies([id]);
+    const [cookies, setCookie, removeCookie] = useCookies([id]);
     const [toBag, setToBag] = useState(false)
     const activeCount = useMemo(() => +(cookies[id] === undefined ? 1 : cookies[id]), [cookies[id]])
+    const [count, setCount] = useState(activeCount);
 
     useEffect(() => {
         if (bagList.length > 0) {
@@ -46,21 +47,27 @@ const ProductListItemSecond = ({catalog, comicId, onRenderItem, onAddToBag, bagL
     }
 
     const calcPlus = () => {
-        if (activeCount > 0) {
+        if (count > 0) {
             if (toBag) {
                 onTotalSum(price)
+                setCookie(id, activeCount + 1)
             }
-            setCookie(id, activeCount + 1)
+            setCount(count => count + 1)
         }
     }
 
     const calcMinus = () => {
-        if (activeCount > 1) {
+        if (count > 1) {
             if (toBag) {
                 onTotalSum(-price)
+                setCookie(id, activeCount - 1)
             }
-            setCookie(id, activeCount - 1)
+            setCount(count => count - 1)
         }
+    }
+
+    const onSetActiveCount = (count) => {
+        count === +cookies[id] ? removeCookie(id) : setCookie(id, count)
     }
 
     const stars = useMemo(() => addAllRaiting(raiting), []);
@@ -121,12 +128,12 @@ const ProductListItemSecond = ({catalog, comicId, onRenderItem, onAddToBag, bagL
                             <button className="calc__btn" onClick={calcMinus}>
                                 <img src={minus} alt="" />
                             </button>
-                            {activeCount}
+                            {count}
                             <button className="calc__btn" onClick={calcPlus}>
                                 <img src={plus} alt="" />
                             </button>
                         </div>
-                        <button onClick={() => {onAddToBag(catalog, price*activeCount)}} disabled={btnDisabled} style={{backgroundColor: bgBtnColor}} className='list__btn-item'><span>В корзину</span></button>
+                        <button onClick={() => {onAddToBag(catalog, price*count); onSetActiveCount(count)}} disabled={btnDisabled} style={{backgroundColor: bgBtnColor}} className='list__btn-item'><span>В корзину</span></button>
                     </div>
                 </div>
             </div>
