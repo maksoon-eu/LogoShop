@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import useShopService from "../../services/ShopService";
+
 import CatalogFilterItemData from "../catalogFilterItem/CatalogFilterItemData";
 import CatalogFilterItem from "../catalogFilterItem/CataligFilterItem";
 
@@ -57,40 +58,40 @@ const CatalogFilter = ({comicId, filteredList, updateCost, updateAvailable}) => 
 
     return (
         <div>
-        <div className="filter__list">
-            <div className="filter__name">Разновидности</div>
-            {filterDataList}
-            <span className="filter__line"></span>
-            {filterList}
-            {filterListAvaliable}
-            <span className="filter__line"></span>
-            <div className="filter__name">Цена</div>
-            <div className="filter__price">
-                <div className="filter__price-name">
-                    <span className="filter__text">От</span>
-                    <div className="filter__input">
-                        <input 
-                            onChange={onValueChange}
-                            name="0"
-                            value={filterInput[0]} 
-                            className="filter__price-input" 
-                            placeholder="100" 
-                            type="number" /><span></span>
+            <div className="filter__list">
+                <div className="filter__name">Разновидности</div>
+                {filterDataList}
+                <span className="filter__line"></span>
+                {filterList}
+                {filterListAvaliable}
+                <span className="filter__line"></span>
+                <div className="filter__name">Цена</div>
+                <div className="filter__price">
+                    <div className="filter__price-name">
+                        <span className="filter__text">От</span>
+                        <div className="filter__input">
+                            <input 
+                                onChange={onValueChange}
+                                name="0"
+                                value={filterInput[0]} 
+                                className="filter__price-input" 
+                                placeholder="100" 
+                                type="number" /><span></span>
+                        </div>
                     </div>
-                </div>
-                <div className="filter__price-name">
-                    <span className="filter__text">До</span>
-                    <div className="filter__input">
-                        <input onChange={onValueChange}
-                            name="1"
-                            value={filterInput[1]} 
-                            className="filter__price-input" 
-                            placeholder="10000" 
-                            type="number" /><span></span>
+                    <div className="filter__price-name">
+                        <span className="filter__text">До</span>
+                        <div className="filter__input">
+                            <input onChange={onValueChange}
+                                name="1"
+                                value={filterInput[1]} 
+                                className="filter__price-input" 
+                                placeholder="10000" 
+                                type="number" /><span></span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     );
 };

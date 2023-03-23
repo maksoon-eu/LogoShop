@@ -6,12 +6,12 @@ import Tabs from '../tabs/Tabs';
 import OrderChose from './OrderChose';
 import OrderChoseLimited from './OrderChoseLimited';
 
-import './order.scss'
 import payImg from '../../resources/img/pay.svg'
 import location from '../../resources/img/location.svg'
 
-const Order = ({totalSum, bagList}) => {
+import './order.scss'
 
+const Order = ({totalSum, bagList}) => {
     const [orderInp, setOrderInp] = useState(['', '', '', '', '', ''])
     const [chekInp, setChekInp] = useState([false, false, false, false, false])
     const [showPassword, setShowPassword] = useState(false)
@@ -31,7 +31,7 @@ const Order = ({totalSum, bagList}) => {
 
     useEffect(() => {
         onInputExit(activeInput)
-    }, [activeInput, orderInp])
+    }, [orderInp])
 
     useEffect(() => {
         onSubmit()
@@ -152,8 +152,7 @@ const Order = ({totalSum, bagList}) => {
                         <div className="order__flex">
                             <label className="order__subtitle" htmlFor="name">ФИО или Организация:</label>
                             <input onChange={onValueChange}
-                                id="name" 
-                                type="text"
+                                id="name" type="text"
                                 className="order__input"
                                 name='0'
                                 value={orderInp[0]}/>
@@ -175,8 +174,7 @@ const Order = ({totalSum, bagList}) => {
                         <div className="order__flex">
                             <label className="order__subtitle" htmlFor="mail">e-mail*:</label>
                             <input onChange={onValueChange}
-                                id="mail" 
-                                type="text" 
+                                id="mail" type="text" 
                                 className="order__input"
                                 name='2'
                                 value={orderInp[2]}/>
@@ -200,8 +198,7 @@ const Order = ({totalSum, bagList}) => {
                         <div className="order__flex">
                             <label className="order__subtitle" htmlFor="password">Пароль*:</label>
                             <input onChange={onValueChange}
-                                id="password" 
-                                type="password" 
+                                id="password" type="password" 
                                 className="order__input order__input--short"
                                 name='4'
                                 value={orderInp[4]}/>
@@ -212,8 +209,7 @@ const Order = ({totalSum, bagList}) => {
                         <div className="order__flex">
                             <label className="order__subtitle" htmlFor="passwordNew">Подтвердить пароль*:</label>
                             <input onChange={onValueChange}
-                                id="passwordNew" 
-                                type="password"
+                                id="passwordNew" type="password"
                                 className="order__input order__input--short"
                                 name='5'
                                 value={orderInp[5]}/>

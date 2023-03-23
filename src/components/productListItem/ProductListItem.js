@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useCookies } from 'react-cookie';
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import raitingPlus from '../../resources/img/raitingPlus.svg';
@@ -13,7 +13,6 @@ import './productListItem.scss'
 
 
 const ProductListItem = ({catalog, comicId, onRenderItem, onAddToBag, bagList, onTotalSum}) => {
-
     const {photo, name, price, raiting, available, sale, saleCount, newItem, id} = catalog
 
     const [cookies, setCookie, removeCookie] = useCookies([id]);
@@ -76,13 +75,8 @@ const ProductListItem = ({catalog, comicId, onRenderItem, onAddToBag, bagList, o
     const availableColor = !available ? '#D1D5DB' : saleColor
     const twoItemActive = sale && newItem ? '108px' : '11px'
 
-    let bgBtnColor = '#10B981'
-    if (available === false) {
-        bgBtnColor = '#F3F4F6'
-    } 
-    if (toBag) {
-        bgBtnColor = '#064E3B'
-    }
+    let bgBtnColor = available ? '#10B981' : '#F3F4F6'
+    bgBtnColor = toBag ? '#064E3B' : bgBtnColor
 
     return (
         <div className="list__item">
@@ -96,7 +90,7 @@ const ProductListItem = ({catalog, comicId, onRenderItem, onAddToBag, bagList, o
                     alt="Item img"
                 />
             </div>
-            <NavLink to={`/${comicId}/${id}`} onClick={() => {onRenderItem(id)}} className="list__item-text">{name}</NavLink>
+            <Link to={`/${comicId}/${id}`} onClick={() => {onRenderItem(id)}} className="list__item-text">{name}</Link>
             <div className="list__item-raiting">
                 {stars}
             </div>

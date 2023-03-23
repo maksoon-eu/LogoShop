@@ -1,22 +1,62 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import ErrorForm from "./ErrorForm";
+import './addRewiewForm.scss'
 
 const AddRewiewForm = ({onAddRewiew}) => {
     const [addRewiew, setAddRewiew] = useState(['', '', '', ''])
+    const [chekInp, setChekInp] = useState([false, false, false, false])
+    const [activeInput, setActiveInput] = useState()
     const [addRaiting, setAddRaiting] = useState(0)
+    
     const [stars, setStars] = useState()
 
     useEffect(() => {
         setStars(document.querySelectorAll('.rewiew__raiting-item svg'))
     }, [])
 
+    useEffect(() => {
+        onInputExit(activeInput)
+    }, [addRewiew])
+
+    const onInputExit = (number) => {
+        switch (number) {
+            case 0:
+                if (addRewiew[0].length > 3) {
+                    setChekInp(chekInp.map((item, i) => i === 0 ? false : item))
+                } else {
+                    setChekInp(chekInp.map((item, i) => i === 0 ? true : item))
+                }
+                break
+            case 1:
+                if (addRewiew[1].length > 3) {
+                    setChekInp(chekInp.map((item, i) => i === 1 ? false : item))
+                } else {
+                    setChekInp(chekInp.map((item, i) => i === 1 ? true : item))
+                }
+                break
+            case 2:
+                if (addRewiew[2].length > 3) {
+                    setChekInp(chekInp.map((item, i) => i === 2 ? false : item))
+                } else {
+                    setChekInp(chekInp.map((item, i) => i === 2 ? true : item))
+                }
+                break
+            case 3:
+                if (addRewiew[3].length > 3) {
+                    setChekInp(chekInp.map((item, i) => i === 3 ? false : item))
+                } else {
+                    setChekInp(chekInp.map((item, i) => i === 3 ? true : item))
+                }
+            break
+        }
+    }
+
     const onSubmit = (e) => {
         e.preventDefault();
         if (!addRewiew.some(item => item.length < 3)) {
             onAddRewiew(addRewiew[0], addRewiew[1], addRewiew[2], addRewiew[3], addRaiting)
             setAddRewiew(['', '', '', ''])
+            setChekInp([false, false, false, false])
             setAddRaiting(0)
             for (let i = 0; i < stars.length; i++) {
                 stars[i].style.fill = '#4B5563' 
@@ -29,6 +69,7 @@ const AddRewiewForm = ({onAddRewiew}) => {
             e.target.value.value = ''
         }
         
+        setActiveInput(+e.target.name)
         setAddRewiew(addRewiew.map((item, i) => i === +e.target.name ? e.target.value : item))
     }
 
@@ -80,7 +121,7 @@ const AddRewiewForm = ({onAddRewiew}) => {
                     placeholder="Ваше имя" 
                     name='0'
                     value={addRewiew[0]}/>
-                <ErrorForm valueInp={addRewiew[0]}/>
+                <div className="error__message" style={{color: chekInp[0] ? '#EF4444' : 'transparent'}}>Введите больше 3 символов</div>
             </div>
             <div className="rewiew__abs">
                 <input onChange={onValueChange} type="text"
@@ -88,7 +129,7 @@ const AddRewiewForm = ({onAddRewiew}) => {
                     placeholder="Отзыв" 
                     name='1'
                     value={addRewiew[1]}/>
-                <ErrorForm valueInp={addRewiew[1]}/>
+                <div className="error__message" style={{color: chekInp[1] ? '#EF4444' : 'transparent'}}>Введите больше 3 символов</div>
             </div>
             <div className="rewiew__abs">
                 <input onChange={onValueChange} type="text"
@@ -96,7 +137,7 @@ const AddRewiewForm = ({onAddRewiew}) => {
                     placeholder="Достоиства товара" 
                     name='2'
                     value={addRewiew[2]}/>
-                <ErrorForm valueInp={addRewiew[2]}/>
+                <div className="error__message" style={{color: chekInp[2] ? '#EF4444' : 'transparent'}}>Введите больше 3 символов</div>
             </div>
             <div className="rewiew__abs">
                 <input onChange={onValueChange} type="text"
@@ -104,7 +145,7 @@ const AddRewiewForm = ({onAddRewiew}) => {
                     placeholder="Недостатки товара" 
                     name='3'
                     value={addRewiew[3]}/>
-                <ErrorForm valueInp={addRewiew[3]}/>
+                <div className="error__message" style={{color: chekInp[3] ? '#EF4444' : 'transparent'}}>Введите больше 3 символов</div>
             </div>
 
             <button type="submit"

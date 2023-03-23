@@ -89,28 +89,26 @@ const CatalogList = ({onRenderItem, onAddToBag, bagList, onTotalSum}) => {
     }
 
     function sortingItems() {
-        if (sortItem === 'expensive') {
-            return filterList.sort((a, b) => b.price - a.price)
-        }
-        if (sortItem === 'cheaply') {
-            return filterList.sort((a, b) => a.price - b.price)
-        }
-        if (sortItem === 'alphabet') {
-            return filterList.sort((a, b) => {
-                const nameA = a.name.toUpperCase();
-                const nameB = b.name.toUpperCase();
-                if (nameA < nameB) {
-                    return -1;
-                }
-                if (nameA > nameB) {
-                    return 1;
-                }
-                return 0;
-            })
-        }
-        if (sortItem === 'popular') {
-            return filterList.sort((a, b) => b.raiting - a.raiting)
-        }
+        switch (sortItem) {
+            case 'expensive':
+                return filterList.sort((a, b) => b.price - a.price)
+            case 'cheaply':
+                return filterList.sort((a, b) => a.price - b.price)
+            case 'alphabet':
+                return filterList.sort((a, b) => {
+                    const nameA = a.name.toUpperCase();
+                    const nameB = b.name.toUpperCase();
+                    if (nameA < nameB) {
+                        return -1;
+                    }
+                    if (nameA > nameB) {
+                        return 1;
+                    }
+                    return 0;
+                })
+            case 'popular':
+                return filterList.sort((a, b) => b.raiting - a.raiting)
+            }
         return filterList
     }
 

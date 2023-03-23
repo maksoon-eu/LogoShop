@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import useShopService from "../../services/ShopService";
+import { Link } from 'react-router-dom';
 
 import Spinner from "../spiner/Spiner";
 import ErrorMessage from "../errorMessage/ErorrMessage";
 import ProductListItem from '../productListItem/ProductListItem';
 
-import './productList.scss'
 import catalogImg from '../../resources/img/catalog.svg'
-import { NavLink } from 'react-router-dom';
 
+import './productList.scss'
 
 const ProductList = ({title, comicId, onRenderItem, onAddToBag, bagList, onTotalSum}) => {
     const [catalog, setCatalog] = useState([])
@@ -38,10 +38,10 @@ const ProductList = ({title, comicId, onRenderItem, onAddToBag, bagList, onTotal
         <>
             <div className="list__header">
                 <h1 className="title">{title}</h1>
-                <NavLink to={`/${comicId}`} className="nav__block-item nav__block-item--main">
+                <Link to={`/${comicId}`} className="nav__block-item nav__block-item--main">
                     <img src={catalogImg} alt="catalog" />
                     Все товары
-                </NavLink>
+                </Link>
             </div>
             <div className='list'>
                 {errorMessage}

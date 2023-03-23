@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useCookies } from 'react-cookie';
 
@@ -13,9 +13,7 @@ import notAvailableImg from '../../resources/img/notavailable.svg';
 
 import './productListItem.scss'
 
-
 const ProductListItemSecond = ({catalog, comicId, onRenderItem, onAddToBag, bagList, onTotalSum}) => {
-
     const {photo, name, price, raiting, available, sale, saleCount, newItem, id} = catalog
 
     const [cookies, setCookie, removeCookie] = useCookies([id]);
@@ -78,13 +76,8 @@ const ProductListItemSecond = ({catalog, comicId, onRenderItem, onAddToBag, bagL
     const availableColor = !available ? '#D1D5DB' : saleColor
     const twoItemActive = sale && newItem ? '108px' : '11px'
 
-    let bgBtnColor = '#10B981'
-    if (available === false) {
-        bgBtnColor = '#F3F4F6'
-    } 
-    if (toBag) {
-        bgBtnColor = '#064E3B'
-    }
+    let bgBtnColor = available ? '#10B981' : '#F3F4F6'
+    bgBtnColor = toBag ? '#064E3B' : bgBtnColor
 
     return (
         <div className="modify__item">
@@ -100,7 +93,7 @@ const ProductListItemSecond = ({catalog, comicId, onRenderItem, onAddToBag, bagL
                 </div>
             </div>
             <div className="modify__item-descr">
-                <NavLink to={`/${comicId}/${id}`} onClick={() => {onRenderItem(id)}} className="list__item-text modify__item-text">{name}</NavLink>
+                <Link to={`/${comicId}/${id}`} onClick={() => {onRenderItem(id)}} className="list__item-text modify__item-text">{name}</Link>
                 <div className="modify__item-word">Тип товара: Арматура PPR; Бренд: Pro Aqua; Применение: описание описание описание описание описание описание описание описание описание описание описание описание описание описание описание</div>
             </div>
             <div className="modify__item-right">

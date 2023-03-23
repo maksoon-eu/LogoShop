@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { NavLink, useParams } from "react-router-dom";
 import { useCookies } from 'react-cookie';
 import moment from 'moment'
@@ -13,8 +13,7 @@ import ride from '../../resources/img/ride.svg';
 import minus from '../../resources/img/minus.svg';
 import plus from '../../resources/img/plus.svg';
 
-import './choseItem.scss'
-import { useEffect } from 'react';
+import './choseItem.scss';
 
 const ChozeItem = ({catalog, onAddToBag, bagList, onTotalSum}) => {
     const [toBag, setToBag] = useState(false)
@@ -108,13 +107,8 @@ const ChozeItem = ({catalog, onAddToBag, bagList, onTotalSum}) => {
         )
     })
 
-    let bgBtnColor = '#10B981'
-    if (available === false) {
-        bgBtnColor = '#F3F4F6'
-    } 
-    if (toBag) {
-        bgBtnColor = '#064E3B'
-    }
+    let bgBtnColor = available ? '#10B981' : '#F3F4F6'
+    bgBtnColor = toBag ? '#064E3B' : bgBtnColor
 
     const stars = useMemo(() => addAllRaiting(raiting), []);
     const newChek = newItem ? 'flex' : 'none'

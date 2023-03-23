@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import location from '../../resources/img/location.svg'
+
 import './tabs.scss'
 
 const Tabs = () => {
@@ -60,7 +61,23 @@ const Tabs = () => {
                     </div>
                 </div>
                 <div style={{display: activeTab === 'tab2' ? 'block' : 'none'}}>
-                    <div className="order__block">Tab 2 works!</div>
+                    <div className="order__block">
+                        <div className="order__flex">
+                            <div className="order__title">1. Адрес для получения</div>
+                            <div className="order__subtitle order__subtitle--bold">Адрес: адрес</div>
+                            <div className="tab" style={{color: '#3B82F6'}}>
+                                <div className="tab__img">
+                                    <img src={location} alt="" />
+                                </div>
+                                <div className="tab__text">
+                                    Выбрать на карте
+                                </div>
+                            </div>
+                        </div>
+                        <div className="order__line"></div>
+                        <div className="order__text">Ваш заказ будет <span>готов к выдаче 11.08.2022</span> и будет 
+                        <span> храниться до 14.08.2022</span></div>
+                    </div>
                 </div>
             </div>
         </div>

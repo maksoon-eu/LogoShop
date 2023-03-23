@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import raitingPlus from '../../resources/img/raitingPlus.svg';
 import raitingNone from '../../resources/img/raitingNone.svg';
@@ -32,7 +32,7 @@ const SearchItem = ({catalog, onRenderItem}) => {
     return (
         <div className="search__item">
             <div className="search__item-left">
-                <NavLink to={`/fittings/${id}`} onClick={() => {onRenderItem(id)}} className="list__item-text">{name}</NavLink>
+                <Link to={`/fittings/${id}`} onClick={() => {onRenderItem(id)}} className="list__item-text">{name}</Link>
                 <div className="modify__item-flex">
                     <div className="modify__item-photo">
                         <img src={available ? availableImg : notAvailableImg} alt="" />

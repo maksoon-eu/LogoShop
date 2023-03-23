@@ -1,6 +1,6 @@
 import cookie from 'cookie';
 import { useMemo } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import BagItem from "../bagItem/BagItem";
 
@@ -23,7 +23,7 @@ const Bag = ({bagList, onAddToBag, onTotalSum}) => {
                 <div className="bag__final">Итого</div>
                 <div>
                     <div className="bag__sum">{`${value.toFixed(2)} ₽`}</div>
-                    <NavLink to='/order' style={{backgroundColor: '#10B981'}} className='list__btn-item item__btn-item'><span>Оформить заказ</span></NavLink>
+                    <Link to='/order' style={{backgroundColor: '#10B981'}} className='list__btn-item item__btn-item'><span>Оформить заказ</span></Link>
                 </div>
             </div>
         </div>

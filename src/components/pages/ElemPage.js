@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useShopService from "../../services/ShopService";
+
 import ChozeItem from "../choseItem/ChoseItem";
 import Spinner from "../spiner/Spiner";
 import ErrorMessage from "../errorMessage/ErorrMessage";
 
 const ElemPage = ({onAddToBag, bagList, onTotalSum}) => {
-
     const {getCatalogElem, error, loading} = useShopService();
 
     const [catalog, setCatalog] = useState([])

@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 import useShopService from "../../services/ShopService";
 
 import catalog1 from '../../resources/img/catalog.svg'
+
 import './nav.scss'
 
 const Nav = ({headerForList}) => {
-
     const [catalog, setCatalog] = useState([])
 
     useEffect(() => {

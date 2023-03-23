@@ -1,10 +1,11 @@
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 
 import slider1 from '../../resources/img/slider1.png'
 
 import './slider.scss'
 import '../../style/btn.scss'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import Slider from "react-slick";
 
@@ -30,11 +31,11 @@ const SimpleSlider = () => {
                                 <div className="slider__item-text">Скидки на инструмент</div>
                                 <div className="slider__item-subtext">На все категории</div>
                             </div>
-                            <button className="blue__btn">
+                            <Link to="/info" className="blue__btn">
                                 <span>
                                     Подробнее об акции
                                 </span>
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -46,11 +47,11 @@ const SimpleSlider = () => {
                                 <div className="slider__item-text">Скидки на инструмент</div>
                                 <div className="slider__item-subtext">На все категории</div>
                             </div>
-                            <button className="blue__btn">
+                            <Link to="/info" className="blue__btn">
                                 <span>
                                     Подробнее об акции
                                 </span>
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -62,11 +63,11 @@ const SimpleSlider = () => {
                                 <div className="slider__item-text">Скидки на инструмент</div>
                                 <div className="slider__item-subtext">На все категории</div>
                             </div>
-                            <button className="blue__btn">
+                            <Link to="/info" className="blue__btn">
                                 <span>
                                     Подробнее об акции
                                 </span>
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
+
 import car from '../../resources/img/car.svg'
+
 import './rideBanner.scss'
 
 const RideBanner = () => {
@@ -12,7 +15,7 @@ const RideBanner = () => {
                 <div className="ride-banner__text-subtitle">Вы делаете покупки, а мы с любовью доставляем ваш заказ в любой уголок нашей необъятной родины. А за заказ от 2 500 рублей доставка будет абсолютно бесплатной.</div>
             </div>
             <div className="ride-banner__btn">
-                <button className="blue__btn">Подробнее</button>
+                <Link to="/info" className="blue__btn">Подробнее</Link>
             </div>
         </div>
     );
